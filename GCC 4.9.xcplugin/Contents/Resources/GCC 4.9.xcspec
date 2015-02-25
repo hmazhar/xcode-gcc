@@ -1,5 +1,5 @@
 /**
-    GCC 4.2 Compiler Specification
+    GCC 4.9 Compiler Specification
 
     Copyright (c) 2007-2010 Apple Inc.  All rights reserved.
 
@@ -7,13 +7,13 @@
 */
 
 {
-    Identifier = "com.apple.compilers.gcc.4_5";
+    Identifier = "com.apple.compilers.gcc.4_9";
     Type = Compiler;
     Class = "PBXCompilerSpecificationGcc3_3";
-    Name = "GCC 4.5";
-    Description = "GNU C/C++ Compiler 4.5";
+    Name = "GCC 4.9";
+    Description = "GNU C/C++ Compiler 4.9";
     Vendor = Apple;
-    Version = "4.5";
+    Version = "4.9";
     FileTypes = (
         "sourcecode.c.c",
         "sourcecode.c.objc",
@@ -40,7 +40,7 @@
         "com.apple.compilers.gcc.headers.4_2",
     );
     "BuiltinJambaseRuleName" = ProcessC;
-    ExecPath = "$(PLATFORM_DEVELOPER_BIN_DIR)/gcc-4.5";
+    ExecPath = "/usr/local/bin/gcc-4.9";
     CommandOutputParser = "XCGccCommandOutputParser";
     PrecompStyle = pch;
     SupportsHeadermaps = Yes;
