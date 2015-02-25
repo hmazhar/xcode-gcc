@@ -1450,6 +1450,44 @@
             Description = "Enables the use of instructions in the SSE4.2 extended instruction set.  Only used when targeting Intel architectures. [GCC_ENABLE_SSE42_EXTENSIONS, -msse42]";
         },
         {
+            Name = "GCC_ENABLE_AVX_EXTENSIONS";
+            Type = Boolean;
+            DefaultValue = NO;
+            CommandLineArgs = {
+                YES = (
+                    "-mavx",
+                );
+                NO = ();
+            };
+            Architectures = (
+                i386,
+                "x86_64",
+            );
+            AppearsAfter = "GCC_ENABLE_SSE42_EXTENSIONS";
+            Category = CodeGeneration;
+            DisplayName = "Enable AVX Extensions";
+            Description = "Enables the use of instructions in the AVX extended instruction set.  Only used when targeting Intel architectures. [GCC_ENABLE_AVX_EXTENSIONS, -mavx]";
+        },
+        {
+            Name = "GCC_ENABLE_AVX2_EXTENSIONS";
+            Type = Boolean;
+            DefaultValue = NO;
+            CommandLineArgs = {
+                YES = (
+                    "-mavx2",
+                );
+                NO = ();
+            };
+            Architectures = (
+                i386,
+                "x86_64",
+            );
+            AppearsAfter = "GCC_ENABLE_AVX_EXTENSIONS";
+            Category = CodeGeneration;
+            DisplayName = "Enable AVX2 Extensions";
+            Description = "Enables the use of instructions in the AVX2 extended instruction set.  Only used when targeting Intel architectures. [GCC_ENABLE_AVX2_EXTENSIONS, -mavx2]";
+        },
+        {
             Name = "GCC_FEEDBACK_DIRECTED_OPTIMIZATION";
             Type = Enumeration;
             DefaultValue = Off;
