@@ -1645,22 +1645,6 @@
             Description = "Warn when a source file does not end with a newline.  [GCC_WARN_ABOUT_MISSING_NEWLINE, -Wnewline-eof]";
         },
         {
-            Name = "GCC_WARN_64_TO_32_BIT_CONVERSION";
-            Type = Boolean;
-            DefaultValue = NO;
-            CommandLineArgs = {
-                YES = (
-                    "-Wshorten-64-to-32",
-                );
-                NO = ();
-            };
-            AppearsAfter = "GCC_WARN_PROTOTYPE_CONVERSION";
-            Category = Warnings;
-            CommonOption = NO;
-            DisplayName = "Implicit Conversion to 32 Bit Type";
-            Description = "Warn if a value is implicitly converted from a 64 bit type to a 32 bit type.  [GCC_WARN_64_TO_32_BIT_CONVERSION, -Wshorten-64-to-32]";
-        },
-        {
             Name = "GCC_THUMB_SUPPORT";
             Type = Boolean;
             DefaultValue = NO;
