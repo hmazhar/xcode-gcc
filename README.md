@@ -5,6 +5,10 @@ To install copy the plugin to
 
 /Applications/Xcode.app/Contents/Plugins/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Xcode/Plug-ins/
 
+Full guide here:
+
+http://hamelot.co.uk/programming/add-gcc-compiler-to-xcode-6/
+
 Based off of https://code.google.com/p/xcode-gcc-plugin/ and modified for GCC 4.9
 
 References:
