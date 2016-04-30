@@ -1,5 +1,6 @@
 # xcode-gcc
-A plugin for XCode 6 that supports newer versions of GCC
+A plugin for XCode 6 that supports newer versions of GCC.
+Also works with XCode 7.3.
 
 To install copy the plugin to 
 
