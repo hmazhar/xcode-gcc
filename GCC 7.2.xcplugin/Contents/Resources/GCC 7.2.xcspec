@@ -777,18 +777,6 @@
             Category = Warnings;
         },
         {
-            Name = "GCC_WARN_FOUR_CHARACTER_CONSTANTS";
-            Type = Boolean;
-            DefaultValue = NO;
-            CommandLineArgs = {
-                YES = (
-                    "-Wfour-char-constants",
-                );
-                NO = ();
-            };
-            Category = Warnings;
-        },
-        {
             Name = "GCC_WARN_SIGN_COMPARE";
             Type = Boolean;
             DefaultValue = NO;
@@ -864,14 +852,14 @@
             DefaultValue = NO;
             CommandLineArgs = {
                 YES = (
-                    "-Wglobal-constructors",
+                    "-felide-constructors",
                 );
                 NO = ();
             };
             Category = Warnings;
             CommonOption = NO;
             DisplayName = "Global Construction or Destruction Required";
-            Description = "Warn about namespace scope data that requires construction or destruction, or functions that use the constructor attribute or the destructor attribute.  Additionally warn if the Objective-C GNU runtime is used to initialize various metadata.  [GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS, -Wglobal-constructors]";
+            Description = "Warn about namespace scope data that requires construction or destruction, or functions that use the constructor attribute or the destructor attribute.  Additionally warn if the Objective-C GNU runtime is used to initialize various metadata.  [GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS, -felide-constructors]";
         },
         {
             Name = "WARNING_CFLAGS";
@@ -1627,22 +1615,6 @@
             CommonOption = YES;
             DisplayName = "Pointer Sign Comparison";
             Description = "Warn when pointers passed via arguments or assigned to a variable differ in sign.  [GCC_WARN_ABOUT_POINTER_SIGNEDNESS, -Wno-pointer-sign]";
-        },
-        {
-            Name = "GCC_WARN_ABOUT_MISSING_NEWLINE";
-            Type = Boolean;
-            DefaultValue = NO;
-            CommandLineArgs = {
-                YES = (
-                    "-Wnewline-eof",
-                );
-                NO = ();
-            };
-            AppearsAfter = "GCC_WARN_ABOUT_POINTER_SIGNEDNESS";
-            Category = Warnings;
-            CommonOption = NO;
-            DisplayName = "Missing Newline At End Of File";
-            Description = "Warn when a source file does not end with a newline.  [GCC_WARN_ABOUT_MISSING_NEWLINE, -Wnewline-eof]";
         },
         {
             Name = "GCC_THUMB_SUPPORT";
