@@ -1,5 +1,5 @@
 /**
-    GCC 5.2 Compiler Specification
+    GCC 7.2 Compiler Specification
 
     Copyright (c) 2007-2010 Apple Inc.  All rights reserved.
 
@@ -7,13 +7,13 @@
 */
 
 {
-    Identifier = "com.apple.compilers.gcc.5_2";
+    Identifier = "com.apple.compilers.gcc.7_2";
     Type = Compiler;
     Class = "PBXCompilerSpecificationGcc3_3";
-    Name = "GCC 5.2";
-    Description = "GNU C/C++ Compiler 5.2";
+    Name = "GCC 7.2";
+    Description = "GNU C/C++ Compiler 7.2";
     Vendor = Apple;
-    Version = "5.2";
+    Version = "7.2";
     FileTypes = (
         "sourcecode.c.c",
         "sourcecode.c.objc",
@@ -40,7 +40,7 @@
         "com.apple.compilers.gcc.headers.4_2",
     );
     "BuiltinJambaseRuleName" = ProcessC;
-    ExecPath = "/usr/local/bin/gcc-5";
+    ExecPath = "/usr/local/bin/gcc";
     CommandOutputParser = "XCGccCommandOutputParser";
     PrecompStyle = pch;
     SupportsHeadermaps = Yes;
@@ -67,7 +67,7 @@
         "-D_GLIBCXX_DEBUG_PEDANTIC=*",
     );
     Options = (
-            
+
 	{
 	    Name = "diagnostic_message_length";
             Type = String;
@@ -823,7 +823,7 @@
                 NO = ();
             };
             FileTypes = (
-                "sourcecode.c.objc", 
+                "sourcecode.c.objc",
                 "sourcecode.cpp.objcpp",
             );
             Category = Warnings;

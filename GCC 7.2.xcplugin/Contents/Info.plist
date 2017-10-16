@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.apple.xcode.compilers.gcc.4_2</string>
+	<string>com.apple.xcode.compilers.gcc.7_2</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>GCC 4.9 Compiler Xcode Plug-in</string>
+	<string>GCC 7.2 Compiler Xcode Plug-in</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
