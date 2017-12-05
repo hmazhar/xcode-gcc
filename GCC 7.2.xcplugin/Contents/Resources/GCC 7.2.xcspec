@@ -3,7 +3,7 @@
 
     Copyright (c) 2007-2010 Apple Inc.  All rights reserved.
 
-    This compiler specification defines the characteristics of the GCC 4.2 compiler.  This specification represents all four language-specific 4.2 compilers (cc1, cc1obj, cc1plus, cc1objplus).  It is self-contained (i.e. not dependent on the installation of the specification plist for any other version of GCC).
+    This compiler specification defines the characteristics of the GCC 7.2 compiler.  This specification represents all four language-specific 7.2 compilers (cc1, cc1obj, cc1plus, cc1objplus).  It is self-contained (i.e. not dependent on the installation of the specification plist for any other version of GCC).
 */
 
 {
@@ -40,7 +40,7 @@
         "com.apple.compilers.gcc.headers.4_2",
     );
     "BuiltinJambaseRuleName" = ProcessC;
-    ExecPath = "/usr/local/bin/gcc";
+    ExecPath = "/usr/local/bin/gcc-7";
     CommandOutputParser = "XCGccCommandOutputParser";
     PrecompStyle = pch;
     SupportsHeadermaps = Yes;
