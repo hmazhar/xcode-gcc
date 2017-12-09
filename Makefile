@@ -1,14 +1,13 @@
-export XCODEAPP="/Applications/Xcode.app"
+XCODEAPP="/Applications/Xcode.app"
 PLUGINDIR="Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Xcode/Plug-ins"
 CLANG_PLUGIN="Clang LLVM 1.0.xcplugin"
-MPICC_PLUGIN="MPICC (Clang).xcplugin"
 XCSPEC="Contents/Resources/Clang LLVM 1.0.xcspec"
 PLISTBUDDY=/usr/libexec/PlistBuddy
 UUID=`defaults read $(XCODEAPP)/Contents/Info DVTPlugInCompatibilityUUID`
 BUILD=`defaults read $(XCODEAPP)/Contents/Info DTXcodeBuild`
 MPICC_PLUGIN="MPICC (Clang) $(BUILD).xcplugin"
 LIBRARY_PLUGIN_DIR="/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
-NVCC_PLUGIN="NVCC.xcplugin"
+NVCC_PLUGIN="NVCC $(BUILD).xcplugin"
 
 mpicc-clang:
 	rm -Rf $(MPICC_PLUGIN)
@@ -34,9 +33,22 @@ install-mpicc-clang:
 	mkdir -p $(LIBRARY_PLUGIN_DIR)
 	cp -R $(MPICC_PLUGIN) $(LIBRARY_PLUGIN_DIR)
 
+nvcc:
+	cp -R "NVCC.xcplugin" $(NVCC_PLUGIN)
+	plutil -convert xml1 $(NVCC_PLUGIN)/Contents/Info.plist
+	${PLISTBUDDY} -c "Add DVTPlugInCompatibilityUUIDs array" $(NVCC_PLUGIN)/Contents/Info.plist    
+	${PLISTBUDDY} -c "Add DVTPlugInCompatibilityUUIDs:0 string $(UUID)" $(NVCC_PLUGIN)/Contents/Info.plist
+
+
 install-nvcc:
 	mkdir -p $(LIBRARY_PLUGIN_DIR)
-	#plutil -convert xml1 $(NVCC_PLUGIN)/Contents/Info.plist
-	#${PLISTBUDDY} -c "Add DVTPlugInCompatibilityUUIDs array" $(NVCC_PLUGIN)/Contents/Info.plist    
-	#${PLISTBUDDY} -c "Add DVTPlugInCompatibilityUUIDs:0 string $(UUID)" $(NVCC_PLUGIN)/Contents/Info.plist
 	cp -R $(NVCC_PLUGIN) $(LIBRARY_PLUGIN_DIR)
+
+install-gcc-72:
+	mkdir -p $(LIBRARY_PLUGIN_DIR)
+	cp -R "GCC 7.2.xcplugin" $(LIBRARY_PLUGIN_DIR)
+
+
+install-gcc-49:
+	mkdir -p $(LIBRARY_PLUGIN_DIR)
+	cp -R "GCC 4.9.xcplugin" $(LIBRARY_PLUGIN_DIR)

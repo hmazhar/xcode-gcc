@@ -18,10 +18,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1707</string>
-	<key>DVTPlugInCompatibilityUUIDs</key>
-	<array>
-		<string>B395D63E-9166-4CD6-9287-6889D507AD6A</string>
-	</array>
 	<key>XCGCReady</key>
 	<string>Yes</string>
 	<key>XCPluginHasUI</key>
