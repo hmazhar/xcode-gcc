@@ -1,0 +1,149 @@
+/**
+    NASM (Netwide 80x86 Assembler) build task
+
+    Copyright (c) 2006-2010 Apple Inc.
+	All rights reserved.
+*/
+
+{   Type = Compiler;
+    Identifier = com.nvidia.compilers.nvcc;
+    Name = "NVCC";
+    Vendor = "Apple";
+    Description = "Assemble Using NVCC";
+    CommandLine = "/usr/local/cuda/bin/nvcc -c $(InputFile) [options] -o $(ObjectsDir)/$(InputFileBase)$(InputFileBaseUniquefier).o";   
+    RuleName = "NVCC $(ObjectsDir)/$(InputFileBase)$(InputFileBaseUniquefier).o $(InputFile)";
+    ExecDescription = "Assemble $(InputFile)";
+    ProgressDescription = "Assembling $(CommandProgressByType) files";
+    Architectures = (i386, "x86_64");
+    InputFileTypes = (
+        sourcecode.c.c,
+		sourcecode.c.cpp
+    );
+    SynthesizeBuildRule = Yes;
+    Outputs = (
+        "$(ObjectsDir)/$(InputFileBase)$(InputFileBaseUniquefier).o"
+    );
+    CommandOutputParser = (
+			("^([^:]*):([0-9]*):[0-9]*: [^:]*error: (.*)$", "emit-error"),
+			("^([^:]*):() [^:]*error: (.*)$", "emit-error"),
+			("^()()error: (.*)$", "emit-error"),
+			("^([^:]*):([0-9]*):[0-9]*: [^:]*warning: (.*)$", "emit-warning"),
+			("^([^:]*):() [^:]*warning: (.*)$", "emit-warning"),
+			("^()()warning: (.*)$", "emit-warning"),
+		);
+    Options = (
+		{
+			Name = NVCC_HOST_COMPILER;
+			Type = String;
+			Category = BuildOptions;
+			DefaultValue = "clang";
+			CommandLinePrefixFlag = "-ccbin=";
+		},
+		{
+			Name = GCC_OPTIMIZATION_LEVEL;
+			Type = Enumeration;
+			DefaultValue = "2";
+			Values = (
+				0,
+				1,
+				2,
+				3,
+				s,
+				fast,
+			);
+			CommandLineArgs = (
+				"-O$(value)",
+			);
+			Category = CodeGeneration;
+		},
+		{
+			Name = "GCC_GENERATE_DEBUGGING_SYMBOLS";
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = CodeGeneration;
+			CommandLineArgs = {
+				YES = ("-g");
+				"<<otherwise>>" = ();
+			};
+		},
+		{
+			Name = "CLANG_CXX_LANGUAGE_STANDARD";
+			Type = Enumeration;
+			Values = (
+				"c++03",
+				"c++11",
+				"c++14",
+				"compiler-default",
+			);
+			DefaultValue = "compiler-default";
+			CommandLineArgs = {
+				"compiler-default" = ();
+				"<<otherwise>>" = (
+					"-std=$(value)",
+				);
+			};
+			FileTypes = (
+				"sourcecode.cpp.cpp",
+			);
+			Category = LanguageCXX;
+		},
+		{
+			Name = arch;
+			Type = String;
+			CommandLineArgs = {
+				"i386" = (
+					"-m",
+					"32"
+				);
+				"x86_64" = (
+					"-m",
+					"64"
+				);
+				"<<otherwise>>" = ();
+			};
+		},
+		{
+			Name = NVCC_GPU_ARCH;
+			Type = String;
+			DefaultValue="sm_30";
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				"<<otherwise>>" = (
+					"-arch",
+					"$(value)"
+				);
+			};
+		},
+		
+		
+	
+    /*    {   Name = NASM_OUTPUT_FILE_FORMAT;
+            Type = String;
+            DefaultValue = "macho";
+            CommandLinePrefixFlag = "-f";
+        },
+        {   Name = NASM_PREINCLUDE_FILE;
+            Type = String;
+            Category = BuildOptions;
+            DefaultValue = "";
+            CommandLineFlag = "-P";
+        },
+        {   Name = HEADER_SEARCH_PATHS;
+            Type = PathList;
+            DefaultValue = "";
+            CommandLinePrefixFlag = "-I";
+        },
+        {   Name = NASM_OTHER_FLAGS;
+            Type = StringList;
+            Category = BuildOptions;
+            DefaultValue = "";
+            CommandLinePrefixFlag = "";
+        },
+        {   Name = build_file_compiler_flags;
+            Type = StringList;
+            DefaultValue = "";
+            CommandLinePrefixFlag = "";
+        },
+		*/
+    );
+}
