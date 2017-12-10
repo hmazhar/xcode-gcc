@@ -8,9 +8,9 @@
 
 // Localized strings for basic info
 
-"Name" = "GCC 5.2";
-"Description" = "GNU C/C++ Compiler 5.2";
-"Version" = "5.2";
+"Name" = "GCC 7.2";
+"Description" = "GNU C/C++ Compiler 7.2";
+"Version" = "7.2";
 "Vendor" = "Apple";
 
 // Localized strings for compiler options
