@@ -8,9 +8,9 @@
 
 // Localized strings for basic info
 
-"Name" = "GCC 7.2";
-"Description" = "GNU C/C++ Compiler 7.2";
-"Version" = "7.2";
+"Name" = "GCC 5.2";
+"Description" = "GNU C/C++ Compiler 5.2";
+"Version" = "5.2";
 "Vendor" = "Apple";
 
 // Localized strings for compiler options
@@ -73,8 +73,10 @@ Please see the full GCC manual for the full definition of all these settings on 
 "[GCC_C_LANGUAGE_STANDARD]-description-[c99]" = "Accept ISO C99, but not GNU extensions.  [-std=c99]";
 "[GCC_C_LANGUAGE_STANDARD]-value-[gnu99]" = "GNU99 [-std=gnu99]";
 "[GCC_C_LANGUAGE_STANDARD]-description-[gnu99]" = "Accept ISO C99 and GNU extensions.  [-std=gnu99]";
-∀嬀䜀䌀䌀开䌀开䰀䄀一䜀唀䄀䜀䔀开匀吀䄀一䐀䄀刀䐀崀ⴀ瘀愀氀甀攀ⴀ嬀最渀甀ㄱ崀∀ 㴀 ∀䜀一唀㤀㤀 嬀ⴀ猀琀搀㴀最渀甀ㄱ崀∀㬀ਢ[GCC_C_LANGUAGE_STANDARD]-description-[gnu1ㅝ" = "Accept ISO C1㄀ 愀渀搀 䜀一唀 攀砀琀攀渀猀椀漀渀猀⸀  嬀ⴀ猀琀搀㴀最渀甀ㄱ]";
-∀嬀䜀䌀䌀开䌀开䰀䄀一䜀唀䄀䜀䔀开匀吀䄀一䐀䄀刀䐀崀ⴀ瘀愀氀甀攀ⴀ嬀挀ㄱ崀∀ 㴀 ∀䌀ㄱ [-std=c1㄀崀∀㬀਀∀嬀䜀䌀䌀开䌀开䰀䄀一䜀唀䄀䜀䔀开匀吀䄀一䐀䄀刀䐀崀ⴀ搀攀猀挀爀椀瀀琀椀漀渀ⴀ嬀挀ㄱ崀∀ 㴀 ∀䄀挀挀攀瀀琀 䤀匀伀 䌀ㄱ, but not GNU extensions.  [-std=c1ㅝ";
+"[GCC_C_LANGUAGE_STANDARD]-value-[gnu11]" = "GNU99 [-std=gnu11]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[gnu11]" = "Accept ISO C11 and GNU extensions.  [-std=gnu11]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[c11]" = "C11 [-std=c11]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[c11]" = "Accept ISO C11, but not GNU extensions.  [-std=c11]";
 "[GCC_C_LANGUAGE_STANDARD]-value-[compiler-default]" = "Compiler Default";
 "[GCC_C_LANGUAGE_STANDARD]-description-[compiler-default]" = "Tells the compiler to use its default C language dialect. This is normally the best choice unless you have specific needs. (Currently equivalent to GNU89.)";
 
