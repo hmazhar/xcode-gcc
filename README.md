@@ -1,4 +1,4 @@
-# xcode-gcc
+# Xcode compilers
 A compiler plugin collection for Xcode 8 and 9.
 
 Supported compilers: GCC 4.9 (not tested), GCC 7.2 (`/usr/local/bin/gcc-7` from Homebrew), MPICC that uses the default `clang` (default installation from Homebrew), NVIDIA NVCC 9.0 (`/usr/local/cuda/bin/nvcc`, requires clang 8.1).
