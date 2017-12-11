@@ -8,27 +8,31 @@ If you need to install to non-default Xcode version, set `XCODE` environment var
 
 GCC 4.9:
 
-`make gcc-49
-
-sudo make install-gcc-49`
+```
+make gcc-49
+sudo make install-gcc-49
+```
 
 GCC 7.2:
 
-`make gcc-72
-
-sudo make install-gcc-72`
+```
+make gcc-72
+sudo make install-gcc-72
+```
 
 MPICC:
 
-`make mpicc-clang
-
-sudo make install-mpicc-clang`
+```
+make mpicc-clang
+sudo make install-mpicc-clang
+```
 
 NVCC:
 
-`make nvcc
-
-sudo make install-nvcc`
+```
+make nvcc
+sudo make install-nvcc
+```
 
 Plugins are installed into `/Library/Application Support/Developer/Shared/Xcode/Plug-ins`, but each plugin is made for a specific Xcode version and won't load in other versions.
 
