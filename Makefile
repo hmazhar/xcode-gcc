@@ -1,10 +1,10 @@
-XCODEAPP="/Applications/Xcode.app"
+XCODE?="/Applications/Xcode.app"
 PLUGINDIR="Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Xcode/Plug-ins"
 CLANG_PLUGIN="Clang LLVM 1.0.xcplugin"
-XCSPEC="Contents/Resources/Clang LLVM 1.0.xcspec"
+CLANG_XCSPEC="Contents/Resources/Clang LLVM 1.0.xcspec"
 PLISTBUDDY=/usr/libexec/PlistBuddy
-UUID=`defaults read $(XCODEAPP)/Contents/Info DVTPlugInCompatibilityUUID`
-BUILD=`defaults read $(XCODEAPP)/Contents/Info DTXcodeBuild`
+UUID=`defaults read $(XCODE)/Contents/Info DVTPlugInCompatibilityUUID`
+BUILD=`defaults read $(XCODE)/Contents/Info DTXcodeBuild`
 LIBRARY_PLUGIN_DIR="/Library/Application Support/Developer/Shared/Xcode/Plug-ins"
 MPICC_PLUGIN="Build/MPICC (Clang) $(BUILD).xcplugin"
 NVCC_PLUGIN="Build/NVCC $(BUILD).xcplugin"
@@ -25,10 +25,10 @@ mpicc-clang:
 	rm -Rf $(MPICC_PLUGIN)/Contents/MacOS
 	rm $(MPICC_PLUGIN)/Contents/Resources/"Default Compiler.xcspec"
 	rm $(MPICC_PLUGIN)/Contents/Resources/English.lproj/"Default Compiler.strings"
-	sed -i -- 's/com\.apple\.compilers\.llvm\.clang\.1_0/compilers\.mpicc\.clang/g' $(MPICC_PLUGIN)/$(XCSPEC)
-	sed -i -- 's/ExecCPlusPlusLinkerPath = "clang++";/ExecCPlusPlusLinkerPath = "mpicxx";/g' $(MPICC_PLUGIN)/$(XCSPEC)
-	sed -i -- 's/ExecPath = "clang";/ExecPath = "mpicxx";/g' $(MPICC_PLUGIN)/$(XCSPEC)
-	python replace.py $(MPICC_PLUGIN)/$(XCSPEC) "(Apple LLVM \d\.\d)" "MPICC (\1)"
+	sed -i -- 's/com\.apple\.compilers\.llvm\.clang\.1_0/compilers\.mpicc\.clang/g' $(MPICC_PLUGIN)/$(CLANG_XCSPEC)
+	sed -i -- 's/ExecCPlusPlusLinkerPath = "clang++";/ExecCPlusPlusLinkerPath = "mpicxx";/g' $(MPICC_PLUGIN)/$(CLANG_XCSPEC)
+	sed -i -- 's/ExecPath = "clang";/ExecPath = "mpicxx";/g' $(MPICC_PLUGIN)/$(CLANG_XCSPEC)
+	python replace.py $(MPICC_PLUGIN)/$(CLANG_XCSPEC) "(Apple LLVM \d\.\d)" "MPICC (\1)"
 	$(call add_uuid,$(MPICC_PLUGIN))
 	sed -i -- 's/com\.apple\.compilers\.llvm\.clang\.1_0/compilers\.mpicc\.clang/g' $(MPICC_PLUGIN)/Contents/Info.plist
 	sed -i -- 's/com\.apple\.compilers\.clang/compilers\.mpicc\.clang/g' $(MPICC_PLUGIN)/Contents/Info.plist

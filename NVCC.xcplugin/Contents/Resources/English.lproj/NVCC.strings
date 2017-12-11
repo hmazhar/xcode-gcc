@@ -8,10 +8,10 @@
 
 // Localized strings for basic info
 
-"Name" = "GCC 5.2";
-"Description" = "GNU C/C++ Compiler 5.2";
-"Version" = "5.2";
-"Vendor" = "Apple";
+"Name" = "NVCC 9.0";
+"Description" = "NVIDIA CUDA Compiler 9.0";
+"Version" = "9.0";
+"Vendor" = "NVIDIA";
 
 // Localized strings for compiler options
 
