@@ -1,0 +1,676 @@
+//
+// GCC 5.2
+// Xcode Compiler Specification
+// English localization
+//
+// Copyright (c) 2008-2009 Apple Inc.  All rights reserved.
+//
+
+// Localized strings for basic info
+
+"Name" = "NVCC 9.0";
+"Description" = "NVIDIA CUDA Compiler 9.0";
+"Version" = "9.0";
+"Vendor" = "NVIDIA";
+
+// Localized strings for compiler options
+
+"[Preprocessing]-category" = "Preprocessing";
+
+"[GCC_PREPROCESSOR_DEFINITIONS]-name" = "Preprocessor Macros";
+"[GCC_PREPROCESSOR_DEFINITIONS]-description" = "Space-separated list of preprocessor macros of the form \"foo\" or \"foo=bar\". [GCC_PREPROCESSOR_DEFINITIONS, -D]";
+
+"[GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS]-name" = "Preprocessor Macros Not Used In Precompiled Headers";
+"[GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS]-description" = "Space-separated list of preprocessor macros of the form \"foo\" or \"foo=bar\". These macros are not used when precompiling a prefix header file. [GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS, -D]";
+
+
+"[Language]-category" = "Language";
+
+"[GCC_INPUT_FILETYPE]-name" = "Compile Sources As";
+"[GCC_INPUT_FILETYPE]-description" = "Specifies whether to compile each source file according to its file type, or whether to treat all source files in the target as if they are of a specific language. [GCC_INPUT_FILETYPE]";
+"[GCC_INPUT_FILETYPE]-value-[automatic]" = "According to File Type";
+"[GCC_INPUT_FILETYPE]-value-[sourcecode.c.c]" = "C";
+"[GCC_INPUT_FILETYPE]-value-[sourcecode.c.objc]" = "Objective-C";
+"[GCC_INPUT_FILETYPE]-value-[sourcecode.cpp.cpp]" = "C++";
+"[GCC_INPUT_FILETYPE]-value-[sourcecode.cpp.objcpp]" = "Objective-C++";
+
+"[GCC_USE_STANDARD_INCLUDE_SEARCHING]-name" = "Use Standard System Header Directory Searching";
+"[GCC_USE_STANDARD_INCLUDE_SEARCHING]-description" = "Controls whether the standard system directories are searched for header files. When disabled, only the directories you have specified with -I options (and the directory of the current file, if appropriate) are searched.  [GCC_USE_STANDARD_INCLUDE_SEARCHING, -nostdinc]";
+"[GCC_USE_STANDARD_INCLUDE_SEARCHING]-value-[NO]" = "No";
+"[GCC_USE_STANDARD_INCLUDE_SEARCHING]-value-[YES]" = "Yes";
+
+"[GCC_C_LANGUAGE_STANDARD]-name" = "C Language Dialect";
+"[GCC_C_LANGUAGE_STANDARD]-description" = "Choose a standard or non-standard C language dialect.
+
+ANSI C: Accept ISO C90 and ISO C++, turning off GNU extensions that are incompatible. [-ansi]
+
+Incompatible GNU extensions include the 'asm', 'inline', and 'typeof' keywords (but not the equivalent __asm__, __inline__, and __typeof__ forms), and the '//' syntax for comments.
+
+This setting also enables trigraphs.
+
+C89: Accept ISO C90, but not GNU extensions. [-std=c89]
+
+GNU89: Accept ISO C90 and GNU extensions. [-std=gnu89]
+
+C99: Accept ISO C99, but not GNU extensions. [-std=c99]
+
+GNU99: Accept ISO C99 and GNU extensions. [-std=gnu99]
+
+Compiler Default: Tells the compiler to use its default C language dialect. This is normally the best choice unless you have specific needs. (Currently equivalent to GNU89.)
+
+Please see the full GCC manual for the full definition of all these settings on the C dialect:
+<http://developer.apple.com/documentation/DeveloperTools/gcc-4.2.1/gcc/C-Dialect-Options.html>
+
+[GCC_C_LANGUAGE_STANDARD]
+";
+"[GCC_C_LANGUAGE_STANDARD]-value-[ansi]" = "ANSI C [-ansi]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[ansi]" = "Accept ISO C90 and ISO C++, turning off GNU extensions that are incompatible.  [-ansi]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[c89]" = "C89 [-std=c89]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[c89]" = "Accept ISO C90, but not GNU extensions.  [-std=c89]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[gnu89]" = "GNU89 [-std=gnu89]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[gnu89]" = "Accept ISO C90 and GNU extensions.  [-std=gnu89]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[c99]" = "C99 [-std=c99]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[c99]" = "Accept ISO C99, but not GNU extensions.  [-std=c99]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[gnu99]" = "GNU99 [-std=gnu99]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[gnu99]" = "Accept ISO C99 and GNU extensions.  [-std=gnu99]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[gnu11]" = "GNU99 [-std=gnu11]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[gnu11]" = "Accept ISO C11 and GNU extensions.  [-std=gnu11]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[c11]" = "C11 [-std=c11]";
+"[GCC_C_LANGUAGE_STANDARD]-description-[c11]" = "Accept ISO C11, but not GNU extensions.  [-std=c11]";
+"[GCC_C_LANGUAGE_STANDARD]-value-[compiler-default]" = "Compiler Default";
+"[GCC_C_LANGUAGE_STANDARD]-description-[compiler-default]" = "Tells the compiler to use its default C language dialect. This is normally the best choice unless you have specific needs. (Currently equivalent to GNU89.)";
+
+"[GCC_CHAR_IS_UNSIGNED_CHAR]-name" = "'char' Type Is Unsigned";
+"[GCC_CHAR_IS_UNSIGNED_CHAR]-description" = "Enabling this setting causes 'char' to be unsigned by default, disabling it causes 'char' to be signed by default.  [GCC_CHAR_IS_UNSIGNED_CHAR, -funsigned-char]";
+"[GCC_CHAR_IS_UNSIGNED_CHAR]-value-[NO]" = "No";
+"[GCC_CHAR_IS_UNSIGNED_CHAR]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_ASM_KEYWORD]-name" = "Allow 'asm', 'inline', 'typeof'";
+"[GCC_ENABLE_ASM_KEYWORD]-description" = "Controls whether 'asm', 'inline', and 'typeof' are treated as keywords or whether they can be used as identifiers.  [GCC_ENABLE_ASM_KEYWORD, -fno-asm]";
+"[GCC_ENABLE_ASM_KEYWORD]-value-[NO]" = "No";
+"[GCC_ENABLE_ASM_KEYWORD]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_TRIGRAPHS]-name" = "Enable Trigraphs";
+"[GCC_ENABLE_TRIGRAPHS]-description" = "Controls whether or not trigraphs are permitted in the source code.  [GCC_ENABLE_TRIGRAPHS, -trigraphs]";
+"[GCC_ENABLE_TRIGRAPHS]-value-[NO]" = "No";
+"[GCC_ENABLE_TRIGRAPHS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_CPP_EXCEPTIONS]-name" = "Enable C++ Exceptions";
+"[GCC_ENABLE_CPP_EXCEPTIONS]-description" = "Enable C++ exception handling.  Generates extra code needed to propagate exceptions.  For some targets, this implies GCC will generate frame unwind information for all functions, which can produce significant data size overhead, although it does not affect execution.  If you do not specify this option, GCC will enable it by default for languages like C++ which normally require exception handling, and disable it for languages like C that do not normally require it.  However, you may need to enable this option when compiling C code that needs to interoperate properly with exception handlers written in C++.  [GCC_ENABLE_CPP_EXCEPTIONS, -fno-exceptions]";
+"[GCC_ENABLE_CPP_EXCEPTIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_CPP_EXCEPTIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_CPP_RTTI]-name" = "Enable C++ Runtime Types";
+"[GCC_ENABLE_CPP_RTTI]-description" = "Enable generation of information about every class with virtual functions for use by the C++ runtime type identification features ( dynamic_cast and typeid ).  If you don't use those parts of the language, you can save some space by using this flag.  Note that exception handling uses the same information, but it will generate it as needed.  [GCC_ENABLE_CPP_RTTI, -fno-rtti]";
+"[GCC_ENABLE_CPP_RTTI]-value-[NO]" = "No";
+"[GCC_ENABLE_CPP_RTTI]-value-[YES]" = "Yes";
+
+"[GCC_CHECK_RETURN_VALUE_OF_OPERATOR_NEW]-name" = "Check Return Value of 'operator new'";
+"[GCC_CHECK_RETURN_VALUE_OF_OPERATOR_NEW]-description" = "Check that the pointer returned by \"operator new\" is non-null before attempting to modify the storage allocated.  This check is normally unnecessary because the C++ standard specifies that \"operator new\" will only return 0 if it is declared throw(), in which case the compiler will always check the return value even without this option.  In all other cases, when \"operator new\" has a non-empty exception specification, memory exhaustion is signalled by throwing \"std::bad_alloc\".  [GCC_CHECK_RETURN_VALUE_OF_OPERATOR_NEW, -fcheck-new]";
+"[GCC_CHECK_RETURN_VALUE_OF_OPERATOR_NEW]-value-[NO]" = "No";
+"[GCC_CHECK_RETURN_VALUE_OF_OPERATOR_NEW]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_PASCAL_STRINGS]-name" = "Recognize Pascal Strings";
+"[GCC_ENABLE_PASCAL_STRINGS]-description" = "Recognize and construct Pascal-style string literals. Its use in new code is discouraged.
+
+	Pascal string literals take the form \"\\pstring\" .  The special escape sequence \\p denotes the Pascal length byte for the string, and will be replaced at compile time with the number of characters that follow.  The \p may only appear at the beginning of a string literal, and may not appear in wide string literals or as an integral constant.  [GCC_ENABLE_PASCAL_STRINGS, -fpascal-strings]";
+"[GCC_ENABLE_PASCAL_STRINGS]-value-[NO]" = "No";
+"[GCC_ENABLE_PASCAL_STRINGS]-value-[YES]" = "Yes";
+
+"[GCC_SHORT_ENUMS]-name" = "Short Enumeration Constants";
+"[GCC_SHORT_ENUMS]-description" = "Make enums only as large as needed for the range of possible values. [GCC_SHORT_ENUMS, -fshort-enums]
+
+Warning: this setting generates code that may not binary compatible with code generated without this setting or with Mac OS X frameworks.";
+"[GCC_SHORT_ENUMS]-value-[NO]" = "No";
+"[GCC_SHORT_ENUMS]-value-[YES]" = "Yes";
+
+"[GCC_ALTIVEC_EXTENSIONS]-name" = "Enable AltiVec Extensions";
+"[GCC_ALTIVEC_EXTENSIONS]-description" = "Enable the AltiVec language extensions as defined by Motorola.  [GCC_ALTIVEC_EXTENSIONS, -faltivec]";
+"[GCC_ALTIVEC_EXTENSIONS]-value-[NO]" = "No";
+"[GCC_ALTIVEC_EXTENSIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_BUILTIN_FUNCTIONS]-name" = "Recognize Built-in Functions";
+"[GCC_ENABLE_BUILTIN_FUNCTIONS]-description" = "Controls whether built-in functions that do not begin with __builtin_ as prefix are recognized.
+
+GCC normally generates special code to handle certain built-in functions more efficiently; for instance, calls to \"alloca\" may become single instructions that adjust the stack directly, and calls to \"memcpy\" may become inline copy loops.  The resulting code is often both smaller and faster, but since the function calls no longer appear as such, you cannot set a breakpoint on those calls, nor can you change the behavior of the functions by linking with a different library.  In addition, when a function is recognized as a built-in function, GCC may use information about that function to warn about problems with calls to that function, or to generate more efficient code, even if the resulting code still contains calls to that function.  For example, warnings are given with -Wformat for bad calls to \"printf\", when \"printf\" is built in, and \"strlen\" is known not to modify global memory.
+
+[GCC_ENABLE_BUILTIN_FUNCTIONS, -fno-builtin]";
+"[GCC_ENABLE_BUILTIN_FUNCTIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_BUILTIN_FUNCTIONS]-value-[YES]" = "Yes";
+
+"[GCC_FORCE_CPU_SUBTYPE_ALL]-name" = "Set Output File Subtype to ALL";
+"[GCC_FORCE_CPU_SUBTYPE_ALL]-description" = "Enabling this option causes GCC's output file to have the ALL subtype, instead of one controlled by the -mcpu or -march option.  [GCC_FORCE_CPU_SUBTYPE_ALL, -force_cpusubtype_ALL]";
+"[GCC_FORCE_CPU_SUBTYPE_ALL]-value-[NO]" = "No";
+"[GCC_FORCE_CPU_SUBTYPE_ALL]-value-[YES]" = "Yes";
+
+"[GCC_LINK_WITH_DYNAMIC_LIBRARIES]-name" = "Enable Linking With Shared Libraries";
+"[GCC_LINK_WITH_DYNAMIC_LIBRARIES]-description" = "Enabling this option allows linking with the shared libraries.  This is the default for most product types.  [GCC_LINK_WITH_DYNAMIC_LIBRARIES, -static]";
+"[GCC_LINK_WITH_DYNAMIC_LIBRARIES]-value-[NO]" = "No";
+"[GCC_LINK_WITH_DYNAMIC_LIBRARIES]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_FLOATING_POINT_LIBRARY_CALLS]-name" = "Generate Floating Point Library Calls";
+"[GCC_ENABLE_FLOATING_POINT_LIBRARY_CALLS]-description" = "Generate output containing library calls for floating point.  [GCC_ENABLE_FLOATING_POINT_LIBRARY_CALLS, -msoft-float]";
+"[GCC_ENABLE_FLOATING_POINT_LIBRARY_CALLS]-value-[NO]" = "No";
+"[GCC_ENABLE_FLOATING_POINT_LIBRARY_CALLS]-value-[YES]" = "Yes";
+
+"[GCC_USE_INDIRECT_FUNCTION_CALLS]-name" = "Generate Indirect Function Calls";
+"[GCC_USE_INDIRECT_FUNCTION_CALLS]-description" = "Default to making all function calls indirectly, using a register, so that functions which reside further than 32 megabytes (33,554,432 bytes) from the current location can be called.  This setting can be overridden by the \"shortcall\" function attribute, or by \"#pragma longcall(0)\".
+
+On Mach-O (Darwin) systems, -mlongcall directs the compiler emit to the glue for every direct call, and the Darwin linker decides whether to use or discard it.  -mlong-branch is a synonym for -mlongcall.
+
+In the future, we may cause GCC to ignore all longcall specifications when the linker is known to generate glue.
+
+[GCC_USE_INDIRECT_FUNCTION_CALLS, -mlong-branch]";
+"[GCC_USE_INDIRECT_FUNCTION_CALLS]-value-[NO]" = "No";
+"[GCC_USE_INDIRECT_FUNCTION_CALLS]-value-[YES]" = "Yes";
+
+"[GCC_USE_REGISTER_FUNCTION_CALLS]-name" = "Generate Register Subroutine Function Calls";
+"[GCC_USE_REGISTER_FUNCTION_CALLS]-description" = "Tells the compiler to perform function calls by first loading the address of the function into a register and then performing a subroutine call on this register.  This switch is needed if the target function will lie outside of the 64 megabyte addressing range of the offset based version of subroutine call instruction.
+
+Even if this switch is enabled, not all function calls will be turned into long calls.  The heuristic is that static functions, functions which have the short-call attribute, functions that are inside the scope of a #pragma no_long_calls directive and functions whose definitions have already been compiled within the current compilation unit, will not be turned into long calls.  The exception to this rule is that weak function definitions, functions with the long-call attribute or the section attribute, and functions that are within the scope of a #pragma long_calls directive, will always be turned into long calls.
+
+This feature is not enabled by default.  Specifying -mno-long-calls will restore the default behavior, as will placing the function calls within the scope of a #pragma long_calls_off directive.  Note these switches have no effect on how the compiler generates code to handle function calls via function pointers.
+
+[GCC_USE_REGISTER_FUNCTION_CALLS, -mlong-calls]";
+"[GCC_USE_REGISTER_FUNCTION_CALLS]-value-[NO]" = "No";
+"[GCC_USE_REGISTER_FUNCTION_CALLS]-value-[YES]" = "Yes";
+
+"[GCC_PREFIX_HEADER]-name" = "Prefix Header";
+"[GCC_PREFIX_HEADER]-description" = "Implicitly include the named header. The path given should either be a project relative path or an absolute path. [GCC_PREFIX_HEADER]";
+"[GCC_PREFIX_HEADER]-value-[NO]" = "No";
+"[GCC_PREFIX_HEADER]-value-[YES]" = "Yes";
+
+"[GCC_PRECOMPILE_PREFIX_HEADER]-name" = "Precompile Prefix Header";
+"[GCC_PRECOMPILE_PREFIX_HEADER]-description" = "Generates a precompiled header for the prefix header, which should reduce overall build times. [GCC_PRECOMPILE_PREFIX_HEADER]
+
+Note: Precompiling the prefix header will be most effective if the contents of the prefix header or any file it includes change rarely. If the contents of the prefix header or any file it includes change frequently, there may be a negative impact to overall build time.";
+"[GCC_PRECOMPILE_PREFIX_HEADER]-value-[NO]" = "No";
+"[GCC_PRECOMPILE_PREFIX_HEADER]-value-[YES]" = "Yes";
+
+"[GCC_INCREASE_PRECOMPILED_HEADER_SHARING]-name" = "Increase Sharing of Precompiled Headers";
+"[GCC_INCREASE_PRECOMPILED_HEADER_SHARING]-description" = "Enabling this option will enable increased sharing of precompiled headers among targets which share the same prefix header and precompiled header directory.
+
+Xcode distinguishes among precompiled header files by generating a hash value based on the command-line options to the compiler used to create the PCH.  Enabling this option will exclude certain compiler options from that hash.  Presently this option will exclude search path options (-I, -iquote, -isystem, -F, -L) from the hash.
+
+Enabling increased sharing of PCH files carries some risk: If two targets use the same prefix header but have different include paths which cause the prefix header to include different files when they are precompiled, then subtle problems may result because one target will use a PCH which was built using files included by the other target.  In this case, this option must be turned off in order to enforce correctness.
+
+[GCC_INCREASE_PRECOMPILED_HEADER_SHARING]";
+"[GCC_INCREASE_PRECOMPILED_HEADER_SHARING]-value-[NO]" = "No";
+"[GCC_INCREASE_PRECOMPILED_HEADER_SHARING]-value-[YES]" = "Yes";
+
+"[OTHER_CFLAGS]-name" = "Other C Flags";
+"[OTHER_CFLAGS]-description" = "Space-separated list of additional flags to pass to the compiler for C and Objective-C files.  Be sure to backslash-escape any arguments that contain spaces or special characters (e.g. path names that may contain spaces).  Use this setting if Xcode does not already provide UI for a particular C or Objective-C compiler flag. [OTHER_CFLAGS]";
+
+"[OTHER_CPLUSPLUSFLAGS]-name" = "Other C++ Flags";
+"[OTHER_CPLUSPLUSFLAGS]-description" = "Space-separated list of additional flags to pass to the compiler for C++ and Objective-C++ files.  Be sure to backslash-escape any arguments that contain spaces or special characters (e.g. path names that may contain spaces).  Use this setting if Xcode does not already provide UI for a C++ or Objective-C++ compiler flag. [OTHER_CPLUSPLUSFLAGS]";
+
+
+"[Warnings]-category" = "Warnings";
+
+"[GCC_TREAT_WARNINGS_AS_ERRORS]-name" = "Treat Warnings as Errors";
+"[GCC_TREAT_WARNINGS_AS_ERRORS]-description" = "Enabling this option causes all warnings to be treated as errors.  [GCC_TREAT_WARNINGS_AS_ERRORS, -Werror]";
+"[GCC_TREAT_WARNINGS_AS_ERRORS]-value-[NO]" = "No";
+"[GCC_TREAT_WARNINGS_AS_ERRORS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS]-name" = "Missing Fields in Structure Initializers";
+"[GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS]-description" = "Warn if a structure's initializer has some fields missing.  For example, the following code would cause such a warning, because \"x.h\" is implicitly zero:
+
+    struct s { int f, g, h; };
+    struct s x = { 3, 4 };
+
+This option does not warn about designated initializers, so the following modification would not trigger a warning:
+
+    struct s { int f, g, h; };
+    struct s x = { .f = 3, .g = 4 };
+
+[GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS, -Wmissing-field-initializers]";
+"[GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS]-value-[YES]" = "Yes";
+
+"[GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS]-name" = "Treat Nonconformant Code Errors as Warnings";
+"[GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS]-description" = "Enabling this option will downgrade messages about nonconformant code from errors to warnings.  By default, G++ effectively sets -pedantic-errors without -pedantic; this option reverses that.  This behavior and this option are superseded by -pedantic, which works as it does for GNU C.  [GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS, -fpermissive]";
+"[GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS]-value-[NO]" = "No";
+"[GCC_TREAT_NONCONFORMANT_CODE_ERRORS_AS_WARNINGS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ABOUT_MISSING_PROTOTYPES]-name" = "Missing Function Prototypes";
+"[GCC_WARN_ABOUT_MISSING_PROTOTYPES]-description" = "Causes warnings to be emitted about missing prototypes.  [GCC_WARN_ABOUT_MISSING_PROTOTYPES, -Wmissing-prototypes]";
+"[GCC_WARN_ABOUT_MISSING_PROTOTYPES]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_MISSING_PROTOTYPES]-value-[YES]" = "Yes";
+
+"[GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS]-name" = "Treat Missing Function Prototypes as Errors";
+"[GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS]-description" = "Causes warnings about missing function prototypes to be treated as errors.  Only applies to C and Objective-C.  [GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS, -Werror-implicit-function-declaration]";
+"[GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS]-value-[NO]" = "No";
+"[GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ABOUT_RETURN_TYPE]-name" = "Mismatched Return Type";
+"[GCC_WARN_ABOUT_RETURN_TYPE]-description" = "Causes warnings to be emitted when a function with a defined return type (not void) contains a return statement without a return-value.  Also emits a warning when a function is defined without specifying a return type.  [GCC_WARN_ABOUT_RETURN_TYPE, -Wreturn-type]";
+"[GCC_WARN_ABOUT_RETURN_TYPE]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_RETURN_TYPE]-value-[YES]" = "Yes";
+
+"[GCC_WARN_NON_VIRTUAL_DESTRUCTOR]-name" = "Nonvirtual Destructor";
+"[GCC_WARN_NON_VIRTUAL_DESTRUCTOR]-description" = "Warn when a class declares an nonvirtual destructor that should probably be virtual, because it looks like the class will be used polymorphically.  [GCC_WARN_NON_VIRTUAL_DESTRUCTOR, -Wnon-virtual-dtor]
+
+This is only active for C++ or Objective-C++ sources.";
+"[GCC_WARN_NON_VIRTUAL_DESTRUCTOR]-value-[NO]" = "No";
+"[GCC_WARN_NON_VIRTUAL_DESTRUCTOR]-value-[YES]" = "Yes";
+
+"[GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS]-name" = "Effective C++ Violations";
+"[GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS]-description" = "Warn about violations of the following style guidelines from Scott Meyers' Effective C++ book:
+	Item 11:  Define a copy constructor and an assignment operator for classes with dynamically allocated memory.
+	Item 12:  Prefer initialization to assignment in constructors.
+	Item 14:  Make destructors virtual in base classes.
+	Item 15:  Have operator= return a reference to *this .
+	Item 23:  Don't try to return a reference when you must return an object.
+
+	and about violations of the following style guidelines from Scott Meyers' More Effective C++ book:
+	Item 6:  Distinguish between prefix and postfix forms of increment and decrement operators.
+	Item 7:  Never overload && ,|| , or ,.
+
+If you use this option, you should be aware that the standard library headers do not obey all of these guidelines; you can use grep -v to filter out those warnings.  [GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS, -Weffc++]";
+"[GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS]-value-[NO]" = "No";
+"[GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS]-name" = "Overloaded Virtual Functions";
+"[GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS]-description" = "Warn when a function declaration hides virtual functions from a base class. [GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS, -Woverloaded-virtual]
+
+For example, in:
+
+	struct A {
+	  virtual void f();
+	};
+
+	struct B: public A {
+	  void f(int);
+	};
+
+the A class version of f() is hidden in B, and code like this:
+
+	B* b;
+	b->f();
+
+will fail to compile. This setting only applies to C++ and Objective-C++ sources.";
+"[GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS]-value-[NO]" = "No";
+"[GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_TYPECHECK_CALLS_TO_PRINTF]-name" = "Typecheck Calls to printf/scanf";
+"[GCC_WARN_TYPECHECK_CALLS_TO_PRINTF]-description" = "Check calls to printf and scanf, etc., to make sure that the arguments supplied have types appropriate to the format string specified, and that the conversions specified in the format string make sense.  [GCC_WARN_TYPECHECK_CALLS_TO_PRINTF, -Wno-format]";
+"[GCC_WARN_TYPECHECK_CALLS_TO_PRINTF]-value-[NO]" = "No";
+"[GCC_WARN_TYPECHECK_CALLS_TO_PRINTF]-value-[YES]" = "Yes";
+
+"[GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED]-name" = "Initializer Not Fully Bracketed";
+"[GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED]-description" = "Warn if an aggregate or union initializer is not fully bracketed.
+
+	Example, Here initializer for a is not fully bracketed, but that for b is fully bracketed.
+
+	int a[2][2] = { 0, 1, 2, 3 };
+	int b[2][2] = { { 0, 1 }, { 2, 3 } };
+
+[GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED, -Wmissing-braces]";
+"[GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED]-value-[NO]" = "No";
+"[GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED]-value-[YES]" = "Yes";
+
+"[GCC_WARN_MISSING_PARENTHESES]-name" = "Missing Braces and Parentheses";
+"[GCC_WARN_MISSING_PARENTHESES]-description" = "Warn if parentheses are omitted in certain contexts, such as when there is an assignment in a context where a truth value is expected, or when operators are nested whose precedence people often get confused about.
+
+Also warn about constructions where there may be confusion to which if statement an else branch belongs.  Here is an example of such a case:
+{
+  if (a)
+    if (b)
+      foo ();
+  else
+    bar ();
+}
+
+	In C, every else branch belongs to the innermost possible if statement, which in this example is if (b) .  This is often not what the programmer expected, as illustrated in the above example by indentation the programmer chose.  When there is the potential for this confusion, GCC will issue a warning when this flag is specified.  To eliminate the warning, add explicit braces around the innermost if statement so there is no way the else could belong to the enclosing if .  The resulting code would look like this:
+{
+  if (a)
+    {
+      if (b)
+        foo ();
+      else
+        bar ();
+    }
+}
+
+[GCC_WARN_MISSING_PARENTHESES, -Wparentheses]";
+"[GCC_WARN_MISSING_PARENTHESES]-value-[NO]" = "No";
+"[GCC_WARN_MISSING_PARENTHESES]-value-[YES]" = "Yes";
+
+"[GCC_WARN_CHECK_SWITCH_STATEMENTS]-name" = "Check Switch Statements";
+"[GCC_WARN_CHECK_SWITCH_STATEMENTS]-description" = "Warn whenever a switch statement has an index of enumeral type and lacks a case for one or more of the named codes of that enumeration.  The presence of a default label prevents this warning.  Case labels outside the enumeration range also provoke warnings when this option is used.  [GCC_WARN_CHECK_SWITCH_STATEMENTS, -Wswitch]";
+"[GCC_WARN_CHECK_SWITCH_STATEMENTS]-value-[NO]" = "No";
+"[GCC_WARN_CHECK_SWITCH_STATEMENTS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_UNUSED_FUNCTION]-name" = "Unused Functions";
+"[GCC_WARN_UNUSED_FUNCTION]-description" = "Warn whenever a static function is declared but not defined or a non-inline static function is unused.  [GCC_WARN_UNUSED_FUNCTION, -Wunused-function]";
+"[GCC_WARN_UNUSED_FUNCTION]-value-[NO]" = "No";
+"[GCC_WARN_UNUSED_FUNCTION]-value-[YES]" = "Yes";
+
+"[GCC_WARN_UNUSED_LABEL]-name" = "Unused Labels";
+"[GCC_WARN_UNUSED_LABEL]-description" = "Warn whenever a label is declared but not used.  [GCC_WARN_UNUSED_LABEL, -Wunused-label]";
+"[GCC_WARN_UNUSED_LABEL]-value-[NO]" = "No";
+"[GCC_WARN_UNUSED_LABEL]-value-[YES]" = "Yes";
+
+"[GCC_WARN_UNINITIALIZED_AUTOS]-name" = "Uninitialized Automatic Variables";
+"[GCC_WARN_UNINITIALIZED_AUTOS]-description" = "Warn if a variable might be clobbered by a setjmp call or if an automatic variable is used without prior initialization.
+
+    Detection of uninitialized automatic variable requires data flow analsys that is only enabled during optimized compilation.
+
+    Note that GCC cannot detect all cases where an automatic variable is initialized or all usage patterns that may lead to use prior to initialization. [GCC_WARN_UNINITIALIZED_AUTOS, -Wuninitialized]";
+"[GCC_WARN_UNINITIALIZED_AUTOS]-value-[NO]" = "No";
+"[GCC_WARN_UNINITIALIZED_AUTOS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_UNKNOWN_PRAGMAS]-name" = "Unknown Pragma";
+"[GCC_WARN_UNKNOWN_PRAGMAS]-description" = "Warn when a #pragma directive is encountered which is not understood by GCC.  If this command line option is used, warnings will even be issued for unknown pragmas in system header files.  This is not the case if the warnings were only enabled by the -Wall command line option.  [GCC_WARN_UNKNOWN_PRAGMAS, -Wunknown-pragmas]";
+"[GCC_WARN_UNKNOWN_PRAGMAS]-value-[NO]" = "No";
+"[GCC_WARN_UNKNOWN_PRAGMAS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_INHIBIT_ALL_WARNINGS]-name" = "Inhibit All Warnings";
+"[GCC_WARN_INHIBIT_ALL_WARNINGS]-description" = "Inhibit all warning messages.  [-GCC_WARN_INHIBIT_ALL_WARNINGS, -w]";
+"[GCC_WARN_INHIBIT_ALL_WARNINGS]-value-[NO]" = "No";
+"[GCC_WARN_INHIBIT_ALL_WARNINGS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_PEDANTIC]-name" = "Pedantic Warnings";
+"[GCC_WARN_PEDANTIC]-description" = "Issue all the warnings demanded by strict ISO C and ISO C++; reject all programs that use forbidden extensions, and some other programs that do not follow ISO C and ISO C++.  For ISO C, follows the version of the ISO C standard specified by any -std option used.  [GCC_WARN_PEDANTIC, -pedantic]";
+"[GCC_WARN_PEDANTIC]-value-[NO]" = "No";
+"[GCC_WARN_PEDANTIC]-value-[YES]" = "Yes";
+
+"[GCC_WARN_SHADOW]-name" = "Hidden Local Variables";
+"[GCC_WARN_SHADOW]-description" = "Warn whenever a local variable shadows another local variable, parameter or global variable or whenever a built-in function is shadowed.  [GCC_WARN_SHADOW, -Wshadow]";
+"[GCC_WARN_SHADOW]-value-[NO]" = "No";
+"[GCC_WARN_SHADOW]-value-[YES]" = "Yes";
+
+"[GCC_WARN_FOUR_CHARACTER_CONSTANTS]-name" = "Four Character Literals";
+"[GCC_WARN_FOUR_CHARACTER_CONSTANTS]-description" = "Warn about four-char literals (e.g., MacOS-style OSTypes: 'APPL').  [GCC_WARN_FOUR_CHARACTER_CONSTANTS, -Wfour-char-constants]";
+"[GCC_WARN_FOUR_CHARACTER_CONSTANTS]-value-[NO]" = "No";
+"[GCC_WARN_FOUR_CHARACTER_CONSTANTS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_SIGN_COMPARE]-name" = "Sign Comparison";
+"[GCC_WARN_SIGN_COMPARE]-description" = "Warn when a comparison between signed and unsigned values could produce an incorrect result when the signed value is converted to unsigned.  This warning is enabled by -W, and by -Wall in C++ only.  [GCC_WARN_SIGN_COMPARE, -Wsign-compare]";
+"[GCC_WARN_SIGN_COMPARE]-value-[NO]" = "No";
+"[GCC_WARN_SIGN_COMPARE]-value-[YES]" = "Yes";
+
+"[GCC_WARN_PROTOTYPE_CONVERSION]-name" = "Prototype Conversion";
+"[GCC_WARN_PROTOTYPE_CONVERSION]-description" = "Warn if a prototype causes a type conversion that is different from what would happen to the same argument in the absence of a prototype.  This includes conversions of fixed point to floating and vice versa, and conversions changing the width or signedness of a fixed point argument except when the same as the default promotion.
+
+Also, warn if a negative integer constant expression is implicitly converted to an unsigned type.  For example, warn about the assignment \"x = -1\" if \"x\" is unsigned.  But do not warn about explicit casts like \"(unsigned) -1\".  [GCC_WARN_PROTOTYPE_CONVERSION, -Wconversion]";
+"[GCC_WARN_PROTOTYPE_CONVERSION]-value-[NO]" = "No";
+"[GCC_WARN_PROTOTYPE_CONVERSION]-value-[YES]" = "Yes";
+
+"[GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR]-name" = "Multiple Definition Types for Selector";
+"[GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR]-description" = "Warn if multiple methods of different types for the same selector are found during compilation.  The check is performed on the list of methods in the final stage of compilation.  Additionally, a check is performed for each selector appearing in a \"@selector(...)\"  expression, and a corresponding method for that selector has been found during compilation.  Because these checks scan the method table only at the end of compilation, these warnings are not produced if the final stage of compilation is not reached, for example because an error is found during compilation, or because the -fsyntax-only option is being used. [GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR, -Wselector]";
+
+"[GCC_WARN_STRICT_SELECTOR_MATCH]-name" = "Strict Selector Matching";
+"[GCC_WARN_STRICT_SELECTOR_MATCH]-description" = "Warn if multiple methods with differing argument and/or return types are found for a given selector when attempting to send a message using this selector to a receiver of type \"id\" or \"Class\".  When this setting is disabled, the compiler will omit such warnings if any differences found are confined to types which share the same size and alignment. [GCC_WARN_STRICT_SELECTOR_MATCH, -Wstrict-selector-match]";
+
+"[GCC_WARN_UNDECLARED_SELECTOR]-name" = "Undeclared Selector";
+"[GCC_WARN_UNDECLARED_SELECTOR]-description" = "Warn if a \"@selector(...)\" expression referring to an undeclared selector is found.  A selector is considered undeclared if no method with that name has been declared before the \"@selector(...)\" expression, either explicitly in an @interface or @protocol declaration, or implicitly in an @implementation section.  This option always performs its checks as soon as a \"@selector(...)\" expression is found, while -Wselector only performs its checks in the final stage of compilation.  This also enforces the coding style convention that methods and selectors must be declared before being used. [GCC_WARN_UNDECLARED_SELECTOR, -Wundeclared-selector]";
+
+"[GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS]-name" = "Global Construction or Destruction Required";
+"[GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS]-description" = "Warn about namespace scope data that requires construction or destruction, or functions that use the constructor attribute or the destructor attribute.  Additionally warn if the Objective-C GNU runtime is used to initialize various metadata.  [GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS, -Wglobal-constructors]";
+"[GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS]-value-[YES]" = "Yes";
+
+"[WARNING_CFLAGS]-name" = "Other Warning Flags";
+"[WARNING_CFLAGS]-description" = "Space-separated list of additional warning flags to pass to the compiler. Use this setting if Xcode does not already provide UI for a particular compiler warning flag. [WARNING_CFLAGS]";
+
+
+"[CodeGeneration]-category" = "Code Generation";
+
+"[GCC_GENERATE_DEBUGGING_SYMBOLS]-name" = "Generate Debug Symbols";
+"[GCC_GENERATE_DEBUGGING_SYMBOLS]-description" = "Enables or disables generation of debug symbols.  When debug symbols are enabled, the level of detail can be controlled by the build 'Level of Debug Symbols' setting. [GCC_GENERATE_DEBUGGING_SYMBOLS]";
+"[GCC_GENERATE_DEBUGGING_SYMBOLS]-value-[NO]" = "No";
+"[GCC_GENERATE_DEBUGGING_SYMBOLS]-value-[YES]" = "Yes";
+
+"[GCC_OPTIMIZATION_LEVEL]-name" = "Optimization Level";
+"[GCC_OPTIMIZATION_LEVEL]-description" = "None: Do not optimize. [-O0]
+
+With this setting, the compiler's goal is to reduce the cost of compilation and to make debugging produce the expected results.  Statements are independent: if you stop the program with a breakpoint between statements, you can then assign a new value to any variable or change the program counter to any other statement in the function and get exactly the results you would expect from the source code.
+
+Fast: Optimizing compilation takes somewhat more time, and a lot more memory for a large function. [-O, -O1]
+
+ With this setting, the compiler tries to reduce code size and execution time, without performing any optimizations that take a great deal of compilation time. In Apple's compiler, strict aliasing, block reordering, and inter-block scheduling are disabled by default when optimizing.
+
+Faster: The compiler performs nearly all supported optimizations that do not involve a space-speed tradeoff. [-O2]
+
+With this setting, the compiler does not perform loop unrolling or function inlining, or register renaming.  As compared to the 'Fast' setting, this setting increases both compilation time and the performance of the generated code.
+
+Fastest: Turns on all optimizations specified by the 'Faster' setting and also turns on function inlining and register renaming options. This setting may result in a larger binary. [-O3]
+
+Fastest, smallest: Optimize for size.  This setting enables all 'Faster' optimizations that do not typically increase code size.  It also performs further optimizations designed to reduce code size. [-Os]
+
+[GCC_OPTIMIZATION_LEVEL]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[0]" = "None [-O0]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[1]" = "Fast [-O, O1]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[2]" = "Faster [-O2]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[3]" = "Fastest [-O3]";
+"[GCC_OPTIMIZATION_LEVEL]-value-[s]" = "Fastest, Smallest [-Os]";
+
+"[GCC_NO_COMMON_BLOCKS]-name" = "No Common Blocks";
+"[GCC_NO_COMMON_BLOCKS]-description" = "In C, allocate even uninitialized global variables in the data section of the object file, rather than generating them as common blocks.  This has the effect that if the same variable is declared (without extern ) in two different compilations, you will get an error when you link them.  The only reason this might be useful is if you wish to verify that the program will work on other systems which always work this way.  [GCC_NO_COMMON_BLOCKS, -fno-common]";
+"[GCC_NO_COMMON_BLOCKS]-value-[NO]" = "No";
+"[GCC_NO_COMMON_BLOCKS]-value-[YES]" = "Yes";
+
+"[GCC_REUSE_STRINGS]-name" = "Make Strings Read-Only";
+"[GCC_REUSE_STRINGS]-description" = "Reuse string literals. [GCC_REUSE_STRINGS, -fwritable-strings]";
+"[GCC_REUSE_STRINGS]-value-[NO]" = "No";
+"[GCC_REUSE_STRINGS]-value-[YES]" = "Yes";
+
+"[GCC_DYNAMIC_NO_PIC]-name" = "Generate Position-Dependent Code";
+"[GCC_DYNAMIC_NO_PIC]-description" = "Faster function calls for applications. Not appropriate for shared libraries (which need to be position-independent). [GCC_DYNAMIC_NO_PIC, -mdynamic-no-pic]";
+"[GCC_DYNAMIC_NO_PIC]-value-[NO]" = "No";
+"[GCC_DYNAMIC_NO_PIC]-value-[YES]" = "Yes";
+
+"[GCC_WARN_UNUSED_PARAMETER]-name" = "Unused Parameters";
+"[GCC_WARN_UNUSED_PARAMETER]-description" = "Warn whenever a function parameter is unused aside from its declaration.  [GCC_WARN_UNUSED_PARAMETER, -Wunused-parameter]";
+"[GCC_WARN_UNUSED_PARAMETER]-value-[NO]" = "No";
+"[GCC_WARN_UNUSED_PARAMETER]-value-[YES]" = "Yes";
+
+"[GCC_WARN_UNUSED_VARIABLE]-name" = "Unused Variables";
+"[GCC_WARN_UNUSED_VARIABLE]-description" = "Warn whenever a local variable or non-constant static variable is unused aside from its declaration.  [GCC_WARN_UNUSED_VARIABLE, -Wunused-variable]";
+"[GCC_WARN_UNUSED_VARIABLE]-value-[NO]" = "No";
+"[GCC_WARN_UNUSED_VARIABLE]-value-[YES]" = "Yes";
+
+"[GCC_WARN_UNUSED_VALUE]-name" = "Unused Values";
+"[GCC_WARN_UNUSED_VALUE]-description" = "Warn whenever a statement computes a result that is explicitly not used.  [GCC_WARN_UNUSED_VALUE, -Wunused-value]";
+"[GCC_WARN_UNUSED_VALUE]-value-[NO]" = "No";
+"[GCC_WARN_UNUSED_VALUE]-value-[YES]" = "Yes";
+
+"[GCC_CW_ASM_SYNTAX]-name" = "CodeWarrior-Style Inline Assembly";
+"[GCC_CW_ASM_SYNTAX]-description" = "Enable the CodeWarrior syntax for inline assembly code in addition to the standard GCC syntax. [GCC_CW_ASM_SYNTAX, -fasm-blocks]";
+"[GCC_CW_ASM_SYNTAX]-value-[NO]" = "No";
+"[GCC_CW_ASM_SYNTAX]-value-[YES]" = "Yes";
+
+"[GCC_UNROLL_LOOPS]-name" = "Unroll Loops";
+"[GCC_UNROLL_LOOPS]-description" = "Unrolls loops. Unrolling makes the code larger, but may make it faster by reducing the number of branches executed. [GCC_UNROLL_LOOPS, -funroll-loops]";
+"[GCC_UNROLL_LOOPS]-value-[NO]" = "No";
+"[GCC_UNROLL_LOOPS]-value-[YES]" = "Yes";
+
+"[GCC_FAST_MATH]-name" = "Relax IEEE Compliance";
+"[GCC_FAST_MATH]-description" = "Enables some floating point optimizations that are not IEEE754-compliant, but which usually work. Programs which require strict IEEE compliance may not work with this option. [GCC_FAST_MATH, -ffast-math]";
+"[GCC_FAST_MATH]-value-[NO]" = "No";
+"[GCC_FAST_MATH]-value-[YES]" = "Yes";
+
+"[GCC_STRICT_ALIASING]-name" = "Enforce Strict Aliasing";
+"[GCC_STRICT_ALIASING]-description" = "Optimize code by making more aggressive assumptions about whether pointers can point to the same objects as other pointers. Programs which use pointers a lot may benefit from this, but programs that don't strictly follow the ISO C rules about the type with which an object may be accessed may behave unexpectedly. [GCC_STRICT_ALIASING, -fstrict-aliasing]";
+"[GCC_STRICT_ALIASING]-value-[NO]" = "No";
+"[GCC_STRICT_ALIASING]-value-[YES]" = "Yes";
+
+"[GCC_MODEL_CPU]-name" = "Target CPU";
+"[GCC_MODEL_CPU]-description" = "Instruction and register set to use for generated code.  Code will not run on older processors. [GCC_MODEL_CPU, -mcpu=<cpu>]";
+"[GCC_MODEL_CPU]-value-[]" = "Generic PowerPC";
+"[GCC_MODEL_CPU]-value-[G3]" = "PowerPC G3 [-mcpu=G3]";
+"[GCC_MODEL_CPU]-value-[G4]" = "PowerPC G4 [-mcpu=G4]";
+"[GCC_MODEL_CPU]-value-[G5]" = "PowerPC G5 [-mcpu=G5]";
+
+"[GCC_MODEL_TUNING]-name" = "Instruction Scheduling";
+"[GCC_MODEL_TUNING]-description" = "Optimize instruction scheduling for this CPU.  Generated code will run on older processors. [GCC_MODEL_TUNING, -mtune=<cpu>]";
+"[GCC_MODEL_TUNING]-value-[]" = "None";
+"[GCC_MODEL_TUNING]-value-[G3]" = "PowerPC G3 [-mtune=G3]";
+"[GCC_MODEL_TUNING]-value-[G4]" = "PowerPC G4 [-mtune=G4]";
+"[GCC_MODEL_TUNING]-value-[G5]" = "PowerPC G5 [-mtune=G5]";
+
+"[GCC_MODEL_PPC64]-name" = "Use 64-bit Integer Math";
+"[GCC_MODEL_PPC64]-description" = "Emit integer instructions that use 64-bit registers and arithmetic opcodes.  Code compiled using this setting will not run on 32-bit processors. [GCC_MODEL_PPC64, -mpowerpc64]";
+"[GCC_MODEL_PPC64]-value-[NO]" = "No";
+"[GCC_MODEL_PPC64]-value-[YES]" = "Yes";
+
+"[GCC_INSTRUMENT_PROGRAM_FLOW_ARCS]-name" = "Instrument Program Flow";
+"[GCC_INSTRUMENT_PROGRAM_FLOW_ARCS]-description" = "Activating this setting indicates that code should be added so program flow arcs are instrumented. See the gcc man page for more information. [GCC_INSTRUMENT_PROGRAM_FLOW_ARCS, -fprofile-arcs]";
+"[GCC_INSTRUMENT_PROGRAM_FLOW_ARCS]-value-[NO]" = "No";
+"[GCC_INSTRUMENT_PROGRAM_FLOW_ARCS]-value-[YES]" = "Yes";
+
+"[GCC_GENERATE_TEST_COVERAGE_FILES]-name" = "Generate Test Coverage Files";
+"[GCC_GENERATE_TEST_COVERAGE_FILES]-description" = "Activating this setting causes a 'notes' file to be produced that the gcov code-coverage utility can use to show program coverage. See the gcc man page for more information. [GCC_GENERATE_TEST_COVERAGE_FILES, -ftest-coverage]";
+"[GCC_GENERATE_TEST_COVERAGE_FILES]-value-[NO]" = "No";
+"[GCC_GENERATE_TEST_COVERAGE_FILES]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL]-name" = "Incomplete Objective-C Protocols";
+"[GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL]-description" = "Warn if methods required by a protocol are not implemented in the class adopting it.  Only applies to Objective-C and Objective-C++. [GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL, -Wno-protocol]";
+"[GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL]-value-[NO]" = "No";
+"[GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS]-name" = "Warn About Deprecated Functions";
+"[GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS]-description" = "Warn about the use of deprecated functions, variables, and types (as indicated by the 'deprecated' attribute).  [GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS, -Wno-deprecated-declarations]";
+"[GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO]-name" = "Warn About Undefined Use of offsetof Macro";
+"[GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO]-description" = "Unchecking this setting will suppress warnings from applying the offsetof macro to a non-POD type.  According to the 1998 ISO C++ standard, applying offsetof to a non-POD type is undefined.  In existing C++ implementations, however, offsetof typically gives meaningful results even when applied to certain kinds of non-POD types. (Such as a simple struct that fails to be a POD type only by virtue of having a constructor.)  This flag is for users who are aware that they are writing non-portable code and who have deliberately chosen to ignore the warning about it.
+
+The restrictions on offsetof may be relaxed in a future version of the C++ standard. [GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO, -Wno-invalid-offsetof]";
+"[GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO]-value-[YES]" = "Yes";
+
+"[GCC_FAST_OBJC_DISPATCH]-name" = "Accelerated Objective-C Dispatch";
+"[GCC_FAST_OBJC_DISPATCH]-description" = "This setting enables highly accelerated dispatch to the Objective-C runtime.  Only applies to Objective-C and Objective-C++. [GCC_FAST_OBJC_DISPATCH, -fobjc-direct-dispatch]";
+"[GCC_FAST_OBJC_DISPATCH]-value-[NO]" = "No";
+"[GCC_FAST_OBJC_DISPATCH]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_OBJC_GC]-name" = "Objective-C Garbage Collection";
+"[GCC_ENABLE_OBJC_GC]-description" = "Compiles code to use Garbage Collector write-barrier assignment primitives within the Objective-C runtime.  Code is marked as being GC capable.  An application marked GC capable will be started by the runtime with Garbage Collection enabled.  All Objective-C code linked or loaded by this application must also be GC capable.  Code compiled as GC Required is presumed to not use traditional Cocoa retain/release methods and may not be loaded into an application that is not running with Garbage Collection enabled.  Code compiled as GC Supported is presumed to also contain traditional retain/release method logic and can be loaded into any application. Garbage Collection is only supported on Mac OS X 10.5 and later. [GCC_ENABLE_OBJC_GC, -fobjc-gc | -fobjc-gc-only]";
+"[GCC_ENABLE_OBJC_GC]-value-[unsupported]" = "Unsupported";
+"[GCC_ENABLE_OBJC_GC]-value-[supported]" = "Supported [-fobjc-gc]";
+"[GCC_ENABLE_OBJC_GC]-value-[required]" = "Required [-fobjc-gc-only]";
+
+"[GCC_ONE_BYTE_BOOL]-name" = "Use One Byte 'bool'";
+"[GCC_ONE_BYTE_BOOL]-description" = "Use a size of 1 byte (instead of 4 bytes) for the 'bool' type. [GCC_ONE_BYTE_BOOL, -mone-byte-bool]
+
+Warning: this setting generates code that may not binary compatible with code generated without this setting or with Mac OS X frameworks.";
+"[GCC_ONE_BYTE_BOOL]-value-[NO]" = "No";
+"[GCC_ONE_BYTE_BOOL]-value-[YES]" = "Yes";
+
+"[GCC_DEBUGGING_SYMBOLS]-name" = "Level of Debug Symbols";
+"[GCC_DEBUGGING_SYMBOLS]-description" = "Selects the level of debugging symbols when the Debug Information Format is 'Stabs'.  At the moment, Xcode defaults to using the 'Referenced Symbols' setting as the 'Default' setting causes the object file size to explode. [GCC_DEBUGGING_SYMBOLS]
+
+Default [-gstabs+ -feliminate-unused-debug-symbols]: Uses the compiler-default level of Stabs debug symbols.  This is the same as 'Referenced Symbols'.
+Referenced Symbols [-gstabs+ -feliminate-unused-debug-symbols]: Debug symbols are generated only for those symbols that are referenced by the source module.
+All Symbols [-gstabs+ -fno-eliminate-unused-debug-symbols]: Debug symbols are generated for all symbols present in the source file and in any included header files.";
+"[GCC_DEBUGGING_SYMBOLS]-value-[default]" = "Default [default, -gstabs+ -feliminate-unused-debug-symbols]";
+"[GCC_DEBUGGING_SYMBOLS]-value-[used]" = "Referenced Symbols [used, -gstabs+ -feliminate-unused-debug-symbols]";
+"[GCC_DEBUGGING_SYMBOLS]-value-[full]" = "All Symbols [full, -gstabs+ -fno-eliminate-unused-debug-symbols]";
+
+"[GCC_ENABLE_EXCEPTIONS]-name" = "Enable Exceptions";
+"[GCC_ENABLE_EXCEPTIONS]-description" = "Enable exception handling.  Generates extra code needed to propagate exceptions.  For some targets, this implies GCC will generate frame unwind information for all functions, which can produce significant data size overhead, although it does not affect execution.  If you do not specify this option, GCC will enable it by default for languages like C++ and Objective-C which normally require exception handling, and disable it for languages like C that do not normally require it.  However, you may need to enable this option when compiling C code that needs to interoperate properly with exception handlers written in other languages.  You may also wish to disable this option if you are compiling older programs that don't use exception handling.  [GCC_ENABLE_EXCEPTIONS, -fexceptions]";
+"[GCC_ENABLE_EXCEPTIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_EXCEPTIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_OBJC_EXCEPTIONS]-name" = "Enable Objective-C Exceptions";
+"[GCC_ENABLE_OBJC_EXCEPTIONS]-description" = "This setting enables @try/@catch/@throw syntax for handling exceptions in Objective-C code.  Only applies to Objective-C and Objective-C++.  [GCC_ENABLE_OBJC_EXCEPTIONS, -fno-objc-exceptions]";
+"[GCC_ENABLE_OBJC_EXCEPTIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_OBJC_EXCEPTIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_SYMBOL_SEPARATION]-name" = "Separate PCH Symbols";
+"[GCC_ENABLE_SYMBOL_SEPARATION]-description" = "When precompiling a prefix header, generate a separate file containing the debug symbols for the PCH.  This can improve build time, and is on by default for products other than static libraries.  This option cannot be used when ZeroLink is enabled, and can only be used when the Level of Debug Symbols setting is 'All Symbols' (full).  Note that this option only affects STABS and is incompatible with DWARF.  [GCC_ENABLE_SYMBOL_SEPARATION, -fsave-repository=<file>]";
+"[GCC_ENABLE_SYMBOL_SEPARATION]-value-[NO]" = "No";
+"[GCC_ENABLE_SYMBOL_SEPARATION]-value-[YES]" = "Yes";
+
+"[GCC_AUTO_VECTORIZATION]-name" = "Auto-vectorization";
+"[GCC_AUTO_VECTORIZATION]-description" = "Performs automatic loop vectorization whenever it is appropriate.  This setting only takes effect when the optimization level is 2 or higher and when targetting a processor that supports auto-vectorization; if the optimization level is lower than 2 or the processor targetted doesn't support vector operations, this setting has no effect. [GCC_AUTO_VECTORIZATION, -ftree-vectorize]";
+"[GCC_AUTO_VECTORIZATION]-value-[NO]" = "No";
+"[GCC_AUTO_VECTORIZATION]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_SSE3_EXTENSIONS]-name" = "Enable SSE3 Extensions";
+"[GCC_ENABLE_SSE3_EXTENSIONS]-description" = "Enables the use of instructions in the SSE3 extended instruction set.  Only used when targeting Intel architectures. [GCC_ENABLE_SSE3_EXTENSIONS, -msse3]";
+"[GCC_ENABLE_SSE3_EXTENSIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_SSE3_EXTENSIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS]-name" = "Enable Supplemental SSE3 Instructions";
+"[GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS]-description" = "Enables the use of built-in functions that allow direct access to the MMX, SSE, SSE2, and SSE3 extensions of the instruction set.  Only used when targeting Intel architectures. [GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS, -mssse3]";
+"[GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_SSE41_EXTENSIONS]-name" = "Enable SSE4.1 Extensions";
+"[GCC_ENABLE_SSE41_EXTENSIONS]-description" = "Enables the use of instructions in the SSE4.1 extended instruction set.  Only used when targeting Intel architectures. [GCC_ENABLE_SSE41_EXTENSIONS, -msse4.1]";
+"[GCC_ENABLE_SSE41_EXTENSIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_SSE41_EXTENSIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_SSE42_EXTENSIONS]-name" = "Enable SSE4.2 Extensions";
+"[GCC_ENABLE_SSE42_EXTENSIONS]-description" = "Enables the use of instructions in the SSE4.2 extended instruction set.  Only used when targeting Intel architectures. [GCC_ENABLE_SSE42_EXTENSIONS, -msse4.2]";
+"[GCC_ENABLE_SSE42_EXTENSIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_SSE42_EXTENSIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_AVX_EXTENSIONS]-name" = "Enable AVX Extensions";
+"[GCC_ENABLE_AVX_EXTENSIONS]-description" = "Enables the use of instructions in the AVX extended instruction set. Only used when targeting Intel architectures. [GCC_ENABLE_AVX_EXTENSIONS, -mavx]";
+"[GCC_ENABLE_AVX_EXTENSIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_AVX_EXTENSIONS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_AVX2_EXTENSIONS]-name" = "Enable AVX2 Extensions";
+"[GCC_ENABLE_AVX2_EXTENSIONS]-description" = "Enables the use of instructions in the AVX2 extended instruction set. Only used when targeting Intel architectures. [GCC_ENABLE_AVX2_EXTENSIONS, -mavx2]";
+"[GCC_ENABLE_AVX2_EXTENSIONS]-value-[NO]" = "No";
+"[GCC_ENABLE_AVX2_EXTENSIONS]-value-[YES]" = "Yes";
+
+
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-name" = "Feedback-Directed Optimization";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-description" = "Enable profile feedback-directed optimization.  First build the program in 'Generate Profile' mode and run it in a representative manner.  This causes the program to generate profile trace files when it exits (they will be generated next to the .o files).  Multiple runs of the program add data to the profile trace files.  Then rebuild the program in 'Use Profile' mode; this will use the information in the profile trace files to make decisions about optimization.  Note that if the code paths taken during the \"training\" pass are not representative of what is going to happen in the optimized application, performance may actually get worse, since the code will be optimized based on misleading data. [GCC_FEEDBACK_DIRECTED_OPTIMIZATION, -profile-generate, -profile-use]";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-value-[Off]" = "Off";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-value-[GenerateProfile]" = "Generate Profile";
+"[GCC_FEEDBACK_DIRECTED_OPTIMIZATION]-value-[UseProfile]" = "Use Profile for Optimization";
+
+"[GCC_SYMBOLS_PRIVATE_EXTERN]-name" = "Symbols Hidden by Default";
+"[GCC_SYMBOLS_PRIVATE_EXTERN]-description" = "When enabled, all symbols are declared 'private extern' unless explicitly marked to be exported using '__attribute__((visibility(\"default\")))' in code. If not enabled, all symbols are exported unless explicitly marked as 'private extern'.
+
+For more information, see <http://developer.apple.com/documentation/DeveloperTools/Conceptual/CppRuntimeEnv/Articles/SymbolVisibility.html>.
+
+[GCC_SYMBOLS_PRIVATE_EXTERN, -fvisibility=hidden]";
+"[GCC_SYMBOLS_PRIVATE_EXTERN]-value-[NO]" = "No";
+"[GCC_SYMBOLS_PRIVATE_EXTERN]-value-[YES]" = "Yes";
+
+"[GCC_INLINES_ARE_PRIVATE_EXTERN]-name" = "Inline Methods Hidden";
+"[GCC_INLINES_ARE_PRIVATE_EXTERN]-description" = "When enabled, out-of-line copies of inline methods are declared 'private extern'. [GCC_INLINES_ARE_PRIVATE_EXTERN, -fvisibility-inlines-hidden]";
+"[GCC_INLINES_ARE_PRIVATE_EXTERN]-value-[NO]" = "No";
+"[GCC_INLINES_ARE_PRIVATE_EXTERN]-value-[YES]" = "Yes";
+
+"[GCC_THREADSAFE_STATICS]-name" = "Statics are Thread-Safe";
+"[GCC_THREADSAFE_STATICS]-description" = "Emits extra code to use the routines specified in the C++ ABI for thread-safe initialization of local statics. You can disable this option to reduce code size slightly in code that doesn't need to be thread-safe.  [GCC_THREADSAFE_STATICS, -fno-threadsafe-statics]";
+"[GCC_THREADSAFE_STATICS]-value-[NO]" = "No";
+"[GCC_THREADSAFE_STATICS]-value-[YES]" = "Yes";
+
+"[GCC_OBJC_CALL_CXX_CDTORS]-name" = "Call C++ Default Ctors/Dtors in Objective-C";
+"[GCC_OBJC_CALL_CXX_CDTORS]-description" = "Run non-trivial default constructors and destructors on C++ instance variables of Objective-C classes.  [GCC_OBJC_CALL_CXX_CDTORS, -fno-objc-call-cxx-cdtors]";
+"[GCC_OBJC_CALL_CXX_CDTORS]-value-[NO]" = "No";
+"[GCC_OBJC_CALL_CXX_CDTORS]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_FIX_AND_CONTINUE]-name" = "Fix & Continue";
+"[GCC_ENABLE_FIX_AND_CONTINUE]-description" = "Activating this setting indicates that binaries should be built for use with Fix & Continue. This setting is enabled by default in debug build configurations and should be enabled or disabled there. It is recommended that release builds NOT be built with Fix & Continue.
+
+Activating this setting will disable the settings \"Symbols Hidden by Default\" and \"Generate Position-Dependent Code\".
+
+[GCC_ENABLE_FIX_AND_CONTINUE, -mfix-and-continue]";
+"[GCC_ENABLE_FIX_AND_CONTINUE]-value-[NO]" = "No";
+"[GCC_ENABLE_FIX_AND_CONTINUE]-value-[YES]" = "Yes";
+
+"[GCC_ENABLE_KERNEL_DEVELOPMENT]-name" = "Kernel Development Mode";
+"[GCC_ENABLE_KERNEL_DEVELOPMENT]-description" = "Activating this setting enables kernel development mode.  This mode sets -static, -fno-common, -fno-cxa-atexit, -fno-exceptions, -fno-non-call-exceptions, -fapple-kext, -fno-weak and -fno-rtti where applicable.  This mode also sets -mno-altivec, -msoft-float, -fno-builtin and -mlong-branch for PowerPC targets. [GCC_ENABLE_KERNEL_DEVELOPMENT, -mkernel]";
+"[GCC_ENABLE_KERNEL_DEVELOPMENT]-value-[NO]" = "No";
+"[GCC_ENABLE_KERNEL_DEVELOPMENT]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ABOUT_POINTER_SIGNEDNESS]-name" = "Pointer Sign Comparison";
+"[GCC_WARN_ABOUT_POINTER_SIGNEDNESS]-description" = "Warn when pointers passed via arguments or assigned to a variable differ in sign.  [GCC_WARN_ABOUT_POINTER_SIGNEDNESS, -Wno-pointer-sign]";
+"[GCC_WARN_ABOUT_POINTER_SIGNEDNESS]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_POINTER_SIGNEDNESS]-value-[YES]" = "Yes";
+
+"[GCC_WARN_ABOUT_MISSING_NEWLINE]-name" = "Missing Newline At End Of File";
+"[GCC_WARN_ABOUT_MISSING_NEWLINE]-description" = "Warn when a source file does not end with a newline.  [GCC_WARN_ABOUT_MISSING_NEWLINE, -Wnewline-eof]";
+"[GCC_WARN_ABOUT_MISSING_NEWLINE]-value-[NO]" = "No";
+"[GCC_WARN_ABOUT_MISSING_NEWLINE]-value-[YES]" = "Yes";

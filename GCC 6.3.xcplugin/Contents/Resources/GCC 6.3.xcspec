@@ -1,5 +1,5 @@
 /**
-    GCC 5.2 Compiler Specification
+    GCC 6.3 Compiler Specification
 
     Copyright (c) 2007-2010 Apple Inc.  All rights reserved.
 
@@ -7,13 +7,13 @@
 */
 
 {
-    Identifier = "com.apple.compilers.gcc.5_2";
+    Identifier = "com.apple.compilers.gcc.6_3";
     Type = Compiler;
     Class = "PBXCompilerSpecificationGcc3_3";
-    Name = "GCC 5.2";
-    Description = "GNU C/C++ Compiler 5.2";
+    Name = "GCC 6.3";
+    Description = "GNU C/C++ Compiler 6.3";
     Vendor = Apple;
-    Version = "5.2";
+    Version = "6.3";
     FileTypes = (
         "sourcecode.c.c",
         "sourcecode.c.objc",
@@ -40,7 +40,7 @@
         "com.apple.compilers.gcc.headers.4_2",
     );
     "BuiltinJambaseRuleName" = ProcessC;
-    ExecPath = "/usr/local/bin/gcc-5";
+    ExecPath = "/usr/local/bin/gcc-6";
     CommandOutputParser = "XCGccCommandOutputParser";
     PrecompStyle = pch;
     SupportsHeadermaps = Yes;
@@ -1599,14 +1599,23 @@
         {
             Name = "GCC_ENABLE_OPENMP_SUPPORT";
             Type = Boolean;
-            DefaultValue = "$(ENABLE_OPENMP_SUPPORT)";
+            DefaultValue = YES;
             CommandLineArgs = {
                 YES = (
                     "-fopenmp",
                 );
                 NO = ();
             };
+            AdditionalLinkerArgs = {
+                YES = (
+                    "-fopenmp",
+                );
+                NO = ();
+            };
             CommonOption = NO;
+            Category = Language;
+            DisplayName = "Enable handling of OpenMP directives";
+            Description = "Enable handling of OpenMP directives '#pragma omp'";
         },
         {
             Name = "GCC_WARN_ABOUT_POINTER_SIGNEDNESS";

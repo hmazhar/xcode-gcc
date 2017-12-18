@@ -1,0 +1,531 @@
+/**
+    NVCC build task
+*/
+
+{   Type = Compiler;
+    Identifier = com.nvidia.compilers.nvcc;
+    Name = "NVCC";
+    Vendor = "Apple";
+    Description = "Compiling Using NVCC";
+    CommandLine = "/usr/local/cuda/bin/nvcc -c $(InputFile) [options] -o $(ObjectsDir)/$(InputFileBase)$(InputFileBaseUniquefier).o";   
+    RuleName = "NVCC $(ObjectsDir)/$(InputFileBase)$(InputFileBaseUniquefier).o $(InputFile)";
+    ExecDescription = "Compile $(InputFile)";
+    ProgressDescription = "Compiling $(CommandProgressByType) files";
+    Architectures = (i386, "x86_64");
+    InputFileTypes = (
+        sourcecode.c.c,
+		sourcecode.cpp.cpp,
+        sourcecode.c.objc,
+		sourcecode.cpp.objcpp
+    );
+    SynthesizeBuildRule = Yes;
+    Outputs = (
+        "$(ObjectsDir)/$(InputFileBase)$(InputFileBaseUniquefier).o"
+    );
+    CommandOutputParser = (
+			("^([^:]*):([0-9]*):[0-9]*: [^:]*error: (.*)$", "emit-error"),
+			("^([^:]*):() [^:]*error: (.*)$", "emit-error"),
+			("^()()error: (.*)$", "emit-error"),
+			("^([^:]*):([0-9]*):[0-9]*: [^:]*warning: (.*)$", "emit-warning"),
+			("^([^:]*):() [^:]*warning: (.*)$", "emit-warning"),
+			("^()()warning: (.*)$", "emit-warning"),
+		);
+    Options = (
+		
+		// These options are skipped for Xcode projects:
+		// --cuda  (-cuda)
+		// --cubin (-cubin)
+		// --fatbin(-fatbin)
+		// --ptx   (-ptx)
+		// --preprocess                               (-E)
+		// --generate-dependencies                    (-M)
+		// --compile                                  (-c)
+		// --device-c                                 (-dc)
+		// --device-w                                 (-dw)
+		// --device-link                              (-dlink)
+		// --link  (-link)
+		// --lib   (-lib)
+		// --run   (-run)
+		
+		
+		// These options are probably passed by Xcode itself, or what?
+		// --output-file <file>                       (-o)
+		// --pre-include <file>,...                   (-include)
+		// --library <library>,...                    (-l)
+		// --define-macro <def>,...                   (-D)
+		// --undefine-macro <def>,...                 (-U)
+		// --include-path <path>,...                  (-I)
+		// --system-include <path>,...                (-isystem)
+		// --library-path <path>,...                  (-L)
+		// --output-directory <directory>             (-odir)
+		
+		
+		// --compiler-bindir <path>                   (-ccbin)
+		{
+			Name = NVCC_HOST_COMPILER;
+			Type = String;
+			Category = BuildOptions;
+			DefaultValue = "clang";
+			CommandLinePrefixFlag = "-ccbin=";
+		},
+		
+		
+		// --cudart{none|shared|static}              (-cudart)
+		{
+			Name = NVCC_CUDA_RUNTIME;
+			Type = Enumeration;
+			Values = (
+				"none",
+				"shared",
+				"static",
+				"compiler default"
+			);
+			Category = BuildOptions;
+			DefaultValue = "compiler default";
+			CommandLineArguments = {
+				"compiler default" = ();
+				"<<otherwise>>" = ("-cudart", "$(value)");
+			};
+		},
+		
+		// TODO: what's this?
+		// --libdevice-directory <directory>          (-ldir)
+		
+		// This is only for Windows
+		// --cl-version <cl-version-number>           --cl-version <cl-version-number>
+
+		// This option is ignored for Xcode project
+		// --use-local-env                            --use-local-env
+		
+		
+		// This is only for Linux
+		// --profile                                  (-pg)
+		
+		
+		// --debug (-g)
+		{
+			Name = "GCC_GENERATE_DEBUGGING_SYMBOLS";
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = CodeGeneration;
+			CommandLineArgs = {
+				YES = ("-g");
+				"<<otherwise>>" = ();
+			};
+		},
+		
+		// --device-debug                             (-G)
+		{
+			Name = "NVCC_GENERATE_DEVICE_DEBUG_INFO";
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = CodeGeneration;
+			CommandLineArgs = {
+				YES = ("-G");
+				"<<otherwise>>" = ();
+			};
+		},
+		
+		// --generate-line-info                       (-lineinfo)
+		{
+			Name = "NVCC_GENERATE_DEVICE_LINE_INFO";
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = CodeGeneration;
+			CommandLineArgs = {
+				YES = ("-lineinfo");
+				"<<otherwise>>" = ();
+			};
+		},
+
+		// --optimize <level>                         (-O)
+		{
+			Name = GCC_OPTIMIZATION_LEVEL;
+			Type = Enumeration;
+			DefaultValue = "2";
+			Values = (
+				0,
+				1,
+				2,
+				3,
+				s,
+				fast,
+			);
+			CommandLineArgs = (
+				"-O$(value)",
+			);
+			Category = CodeGeneration;
+		},
+		
+		// TODO: ?
+		// --ftemplate-backtrace-limit <limit>        (-ftemplate-backtrace-limit)
+		// --ftemplate-depth <limit>                  (-ftemplate-depth)
+		// --shared(-shared)
+		// --x {c|c++|cu}                             (-x)
+		
+		// --std {c++03|c++11|c++14}                  (-std)
+		{
+			Name = "CLANG_CXX_LANGUAGE_STANDARD";
+			Type = Enumeration;
+			Values = (
+				"c++03",
+				"c++11",
+				"c++14",
+				"compiler-default",
+			);
+			DefaultValue = "compiler-default";
+			CommandLineArgs = {
+				"compiler-default" = ();
+				"<<otherwise>>" = (
+					"-std=$(value)",
+				);
+			};
+			FileTypes = (
+				"sourcecode.cpp.cpp",
+			);
+			Category = LanguageCXX;
+		},
+		
+		// TODO: ?
+		// --no-host-device-initializer-list          (-nohdinitlist)
+		// --no-host-device-move-forward              (-nohdmoveforward)
+		// --expt-relaxed-constexpr                   (-expt-relaxed-constexpr)
+		// --expt-extended-lambda                     (-expt-extended-lambda)
+		
+		// --machine {32|64}                          (-m)
+		{
+			Name = arch;
+			Type = String;
+			CommandLineArgs = {
+				"i386" = (
+					"-m",
+					"32"
+				);
+				"x86_64" = (
+					"-m",
+					"64"
+				);
+				"<<otherwise>>" = ();
+			};
+		},
+		
+		// --compiler-options <options>,...           (-Xcompiler)
+		{
+			Name = "OTHER_HOST_C_FLAGS";
+			Type = StringList;
+			FileTypes = (
+				"sourcecode.c.c",
+				"sourcecode.c.objc",
+			);
+			Category = HostCompilerCustomFlags;
+			CommandLineFlag = "-Xcompiler";
+		},
+		{
+			Name = "OTHER_HOST_CPP_FLAGS";
+			Type = StringList;
+			FileTypes = (
+				"sourcecode.cpp.cpp",
+				"sourcecode.cpp.objcpp",
+			);
+			Category = HostCompilerCustomFlags;
+			CommandLineFlag = "-Xcompiler";
+		},
+		
+		// ld is called directly by Xcode
+		// --linker-options <options>,...             (-Xlinker)
+		
+		// TODO: ?
+		// --archive-options <options>,...            (-Xarchive)
+		// --ptxas-options <options>,...              (-Xptxas)
+		// --nvlink-options <options>,...             (-Xnvlink)
+		
+		
+		// --dont-use-profile                         (-noprof)
+		
+		// These options are ignored for Xcode projects
+		// --dryrun(-dryrun)
+		// --verbose                                  (-v)
+		// --keep  (-keep)
+		// --keep-dir <directory>                     (-keep-dir)
+		// --save-temps                               (-save-temps)
+		
+		// TODO: how does Xcode clean?
+		// --clean-targets                            (-clean)
+		
+		// These options are ignored for Xcode projects
+		// --run-args <arguments>,...                 (-run-args)
+		
+		// These options are for Windows
+		// --input-drive-prefix <prefix>              (-idp)
+		// --dependency-drive-prefix <prefix>         (-ddp)
+		// --drive-prefix <prefix>                    (-dp)
+		
+		// These options are skipped for Xcode projects
+		// --dependency-target-name <target>          (-MT)
+		
+		// This probably shouldn't be used
+		// --no-align-double                          --no-align-double
+		
+		// These options are skipped for Xcode projects
+		// --no-device-link                           (-nodlink)
+		
+		// --gpu-architecture <arch>                  (-arch)
+		{
+			Name = NVCC_GPU_ARCH;
+			Type = Enumeration;
+			Values = (
+				"compute_30",
+				"compute_32",
+				"compute_35",
+				"compute_37",
+				"compute_50",
+				"compute_52",
+				"compute_53",
+				"compute_60",
+				"compute_61",
+				"compute_62",
+				"sm_30",
+				"sm_32",
+				"sm_35",
+				"sm_37",
+				"sm_50",
+				"sm_52",
+				"sm_53",
+				"sm_60",
+				"sm_61",
+				"sm_62",
+				"compiler-default",
+			);
+			DefaultValue="compiler-default";
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				"compiler-default" = ();
+				"<<otherwise>>" = (
+					"-arch",
+					"$(value)"
+				);
+			};
+		},
+		
+		// --gpu-code <code>,...                      (-code)
+		{
+			Name = NVCC_GPU_CODE;
+			Type = Enumeration;
+			Values = (
+				"compute_30",
+				"compute_32",
+				"compute_35",
+				"compute_37",
+				"compute_50",
+				"compute_52",
+				"compute_53",
+				"compute_60",
+				"compute_61",
+				"compute_62",
+				"sm_30",
+				"sm_32",
+				"sm_35",
+				"sm_37",
+				"sm_50",
+				"sm_52",
+				"sm_53",
+				"sm_60",
+				"sm_61",
+				"sm_62",
+				"compiler-default",
+			);
+			DefaultValue="compiler-default";
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				"compiler-default" = ();
+				"<<otherwise>>" = (
+					"-code",
+					"$(value)"
+				);
+			};
+		},
+		
+		// TODO: ?
+		// --generate-code <specification>,...        (-gencode)
+		
+		// These options are skipped for Xcode projects
+		// --relocatable-device-code {true|false}     (-rdc)
+		// --entries entry,...                        (-e)
+		
+		// --maxrregcount <amount>                    (-maxrregcount)
+		// TODO: how to write "default" for integer?
+		// {
+// 			Name = NVCC_MAX_REG_COUNT;
+// 			Type = Integer;
+// 			DefaultValue = NO;
+// 			Category = GPUCodeGeneration;
+// 			CommandLineArgs = {
+// 				YES = ("-use_fast_math");
+// 				"<<otherwise>>" = ();
+// 			};
+// 		},
+//
+		
+		// --use_fast_math                            (-use_fast_math)
+		{
+			Name = NVCC_FAST_MATH;
+			Type = Boolean;
+			DefaultValue = NO;
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				YES = ("--use_fast_math");
+				"<<otherwise>>" = ();
+			};
+		},
+		
+		// --ftz {true|false}                         (-ftz)
+		{
+			Name = NVCC_FLUSH_TO_ZERO;
+			Type = Boolean;
+			DefaultValue = NO;
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				YES = ("--ftz=true");
+				"<<otherwise>>" = ("--ftz=false");
+			};
+		},
+
+		// --prec-div {true|false}                    (-prec-div)
+		{
+			Name = NVCC_PRECISE_DIVISION;
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				YES = ("--prec-div=true");
+				"<<otherwise>>" = ("--prec-div=false");
+			};
+		},
+		
+		
+		// --prec-sqrt {true|false}                   (-prec-sqrt)
+		{
+			Name = NVCC_PRECISE_SQUARE_ROOT;
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				YES = ("--prec-sqrt=true");
+				"<<otherwise>>" = ("--prec-sqrt=false");
+			};
+		},
+		
+		// --fmad {true|false}                        (-fmad)
+		{
+			Name = NVCC_FLOAT_MULT_ADD;
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				YES = ("--fmad=true");
+				"<<otherwise>>" = ("--fmad=false");
+			};
+		},
+		
+		// --default-stream {legacy|null|per-thread}  (-default-stream)
+		{
+			Name = NVCC_DEFAULT_STREAM;
+			Type = Enumeration;
+			Values = ("legacy", "per-thread");
+			DefaultValue = "legacy";
+			Category = GPUCodeGeneration;
+			CommandLineArgs = {
+				"legacy" = ();
+				"per-thread" = ("--default-stream", "per-thread");
+			};
+		},
+		
+		// --disable-warnings                         (-w)
+		{
+			Name = NVCC_DISABLE_WARNINGS;
+			Type = Boolean;
+			DefaultValue = NO;
+			Category = Warnings;
+			CommandLineArgs = {
+				YES = ("--disable-warnings");
+				"<<otherwise>>" = ();
+			};
+		},
+		
+		// TODO: ?
+		// --keep-device-functions                    (-keep-device-functions)
+		// --source-in-ptx                            (-src-in-ptx)
+		
+		
+		// --restrict                                 (-restrict)
+		{
+			Name = NVCC_WARN_RESTRICT;
+			Type = Boolean;
+			DefaultValue = NO;
+			Category = Warnings;
+			CommandLineArgs = {
+				YES = ("-restrict");
+				"<<otherwise>>" = ();
+			};
+		},
+		
+		// --Wreorder                                 (-Wreorder)
+		{
+			Name = NVCC_WARN_REORDER;
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = Warnings;
+			CommandLineArgs = {
+				YES = ("-Wreorder");
+				"<<otherwise>>" = ();
+			};
+		},
+		
+		
+		// --Wno-deprecated-declarations              (-Wno-deprecated-declarations)
+		{
+			Name = NVCC_WARN_DEPRECATED_DECL;
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = Warnings;
+			CommandLineArgs = {
+				YES = ();
+				"<<otherwise>>" = ("-Wno-deprecated-declarations");
+			};
+		},
+
+		// --Wno-deprecated-gpu-targets               (-Wno-deprecated-gpu-targets)
+		{
+			Name = NVCC_WARN_DEPRECATED_TARGET;
+			Type = Boolean;
+			DefaultValue = YES;
+			Category = Warnings;
+			CommandLineArgs = {
+				YES = ();
+				"<<otherwise>>" = ("-Wno-deprecated-gpu-targets");
+			};
+		},
+
+
+		// TODO
+		// --Werror<kind>,...                        (-Werror)
+		
+		// These options are skipped for Xcode projects
+		// --resource-usage                           (-res-usage)
+		// --help  (-h)
+		// --version                                  (-V)
+		// --options-file <file>,...                  (-optf)
+		
+		
+		
+		
+		// TODO: automatically copy all Clang options, but pass them using "-Xcompiler", except those that are understood by NVCC like -I or -isystem, and move them into "Host" categories
+		
+		{
+			Name = "OTHER_NVCC_FLAGS";
+			Type = StringList;
+			Category = CustomFlags;
+			CommandLineArgs = ("$(value)");
+		}
+    );
+}
